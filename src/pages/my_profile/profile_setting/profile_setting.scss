@@ -1,0 +1,111 @@
+page-profile_setting {
+    .navar_top {
+        left: 21px; position: absolute; width: 100%; z-index: 1001;
+        justify-content: space-between; width: 100%;
+        background: #fff; align-items: center; 
+        left: 15px; top: 0; position: absolute; z-index: 10;
+        .title_label {
+            font-weight: 500;
+        }
+        .save_button {
+            color: #00529a;
+            font-size: 13px;           
+        }
+        ion-icon {
+            padding: 10px;
+            margin-left: -10px;
+        }
+    }
+    .page-content {
+        .id_input {
+            .col .item-md.item-block .item-inner {
+                padding-right: 0px; 
+            }
+            .login-input input {
+                width: 100%;
+                padding: 10px;
+                background: 0 0;
+                border: 0;
+                border: 1px solid #eeeeee;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                -o-border-radius: 0;
+                border-radius: 0;
+                color: #555;
+                box-shadow: none;
+                font-size: 14px; 
+                margin: 5px 0px 5px 0px;
+            }
+        }
+        .logout_label {
+            font-size: 15px;
+            font-weight: 500;
+            color: #00529a;
+        }
+        .exit_label {
+            font-size: 15px;
+            font-weight: 500;
+            color: #999;
+        }
+        ion-label {
+            font-weight: 500;
+        }
+        #get_verification_code {
+            width: 92px;
+            margin-left: 15px;
+        }
+        #confirm {
+            width: 150px;
+            margin-left: 15px;
+        }
+        .button_line {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;   
+            div.main_info {
+                margin-left: 10px;
+            }
+        }
+        .social_line {
+            display: flex; align-items: center; width: 100%;
+            padding-top: 10px;padding-bottom: 10px;   
+        }
+        .social_name {
+            font-size: 13px; font-weight: 800; margin-left: 10px;       
+        }       
+        .link_social {
+            height: 30px; width: 100px;   
+        }
+        .scroll-content {
+            padding-left: 12px;
+            padding-right: 12px;    
+        }
+        .navar_top1 {
+            justify-content: center; align-items: center; 
+            padding-top: 10px; padding-bottom: 10px;
+            .close_icon {
+                position: absolute; left: 15px;    
+            }
+            .title_label {
+                font-weight: 500;
+            }
+        }
+        .iframe {
+            height: calc( 100vh - 100px );
+            border: 0px; width: 100%;
+        }
+    }
+}
+
+.logout_alert {
+    .alert-message {
+        color: #000 !important;
+    }
+    .alert-button-group {
+        button {
+            color: #00529a;
+        }
+    }
+}

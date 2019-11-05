@@ -1,0 +1,46 @@
+<ion-content padding class="login-content">
+    <ion-grid>
+      <ion-row class="navar_top">
+        <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+        <div class="title_label">카드등록</div>
+      </ion-row>
+      <ion-row class="card_label1">
+        신용.체크카드 등록
+      </ion-row>
+      <ion-row class="card_input_box">
+        <div class="card_reg_info1">
+            <div class="card_bank">
+                <span class="bank_name">{{ this.bank_name }}</span>
+                <span class="bank_number">{{ this.bank_card_number }}</span>
+            </div>
+            <div class="card_valid">
+                <span>유효기간</span>
+                <div>
+                    <ion-input class="card_number_part" placeholder="MM" type="tel" maxlength="2" [(ngModel)]="mm"></ion-input>
+                    <span>/</span>
+                    <ion-input class="card_number_part" placeholder="YY" type="tel" maxlength="2" [(ngModel)]="yy"></ion-input>
+                </div>
+            </div>
+            <div class="card_cvc">
+                <span>CVC</span>
+                <ion-input class="card_number_part" placeholder="3자리" type="tel" maxlength="3" [(ngModel)]="card_cvc"></ion-input>
+            </div>
+        </div>
+        <div class="card_reg_info2">
+            <div class="card_pwd">
+              <span>카드비밀번호</span>
+              <ion-input class="card_number_part" placeholder="앞 2자리" type="password" maxlength="2" [(ngModel)]="card_pw"></ion-input>
+            </div>
+            <div class="border_line">
+              </div>
+            <div class="card_birthday">
+               <span>생년월일</span>
+               <ion-input class="card_number_part" placeholder="680843" type="tel" maxlength="6" [(ngModel)]="card_birth"></ion-input>
+            </div>
+        </div>
+      </ion-row>
+      <ion-row class="card_register" (click)="cardRegister()">
+        카드등록 
+      </ion-row>
+    </ion-grid>
+  </ion-content>

@@ -1,0 +1,23 @@
+<ion-row class="navar_top">
+        <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+        <div class="title_label">공지사항</div>
+</ion-row>
+<ion-content class="page-content">
+    <ion-grid class="section">
+        <div class="a_item" *ngFor="let result_item of result_list; let i = index">
+              <ion-row class="panel_div" (click)="detailClick(i)">
+                      <div class="panel_body running_panel">
+                          <div class="panel_detail" style="align-items:center;">
+                              <div class="align_column">
+                                  <span class="reg_date">{{ result_item.reg_date }}</span>
+                                  <span class="notice">{{ result_item.title }}</span>
+                              </div>
+                          </div>
+                      </div>
+              </ion-row>
+              <ion-row class="announce_desc" *ngIf="selected == i">
+                      <p style="white-space: pre-line" [innerHTML]="result_item.contents"></p>
+              </ion-row>
+        </div>
+    </ion-grid>
+  </ion-content>

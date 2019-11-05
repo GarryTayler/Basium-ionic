@@ -1,0 +1,51 @@
+<ion-content class="page-content">
+    <ion-grid class="section">
+        <ion-row class="navar_top">
+          <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+          <div class="title_label">결제카드</div>
+        </ion-row>
+        <ion-row class="slide_container card_container margin-top">
+          <ion-slides #slides [pager]="curIndex < slide_count" (ionSlideDidChange)="slideChanged()">            
+            <ion-slide *ngFor="let result_item of result_list"  [style.backgroundImage]="'url(./assets/imgs/card_background.png)'">  
+              <div class="walkthrough-pane">
+                  <div class="card_template blue_background column_align left_layout">
+                    <div class="card_header" > 
+                        <div>{{ result_item.card_comp }}카드</div>
+                        <button class="login-button white_button edit_button" ion-button icon-end (click)="card_edit(result_item.card_comp , result_item.card_num , result_item.card_no , result_item.billing_key)">
+                            편집
+                        </button>  
+                    </div>
+                    <div class="card_number">
+                        {{ result_item.card_num }}
+                    </div>
+                    <div class="card_register">
+                        등록일 : {{ getDateFromDateTime(result_item.reg_dt) }}
+                    </div>
+                  </div>
+              </div>
+            </ion-slide>
+            <ion-slide [style.backgroundImage]="'url(./assets/imgs/card_background.png)'">  
+              <div class="walkthrough-pane">
+                  <div class="card_template center_layout" (click)="clickCard()">
+                      <img [src]="'./assets/icon/plus_icon.png'" class="line_img" /> 
+                      <div class="card_label">카드 등록</div>
+                  </div>
+              </div>
+            </ion-slide>
+          </ion-slides>  
+        </ion-row>
+        <ion-row class="card_description">
+          <ul>
+            <li>
+              신용카드: KB, NH농협, 롯데, 비씨, 삼성, 신한, 씨티, 하나(외환), 현대, 카카오뱅크, 케이뱅크카드 등록 가능합니다.
+            </li>
+            <li>
+              공용법인카드: KB, 비씨, 삼성, 신한, 하나카드 등록 가능합니다.
+            </li>
+            <li>
+              공용법인카드의 경우 카드 미사용 90일마다 사용기한 연장이 필요합니다.
+            </li>
+          </ul>
+        </ion-row>
+    </ion-grid>
+  </ion-content>

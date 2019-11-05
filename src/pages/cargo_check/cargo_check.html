@@ -1,0 +1,85 @@
+<ion-header>
+    <main-header></main-header>
+</ion-header>
+<ion-content class="page-content" [class.keyboard-open]="keyboard.isOpen()">
+  <ion-grid class="section">
+    <ion-row class="cargo_title">
+      화물조회
+    </ion-row>
+    <ion-row class="cargo_image">
+        <img [src]="'./assets/icon/goods.png'" class="line_img" /> 
+    </ion-row>
+    <ion-row class="tabs">
+      <ion-col [class.active]="tabSelect == 'ems'" (click)="tab_choose('ems')">  
+        EMS
+      </ion-col>
+      <ion-col [class.active]="tabSelect == 'sd'" (click)="tab_choose('sd')">  
+        특송
+      </ion-col>
+    </ion-row>
+    <ion-row class="ems_content" *ngIf="tabSelect == 'ems'">
+      <div class="login-input-group">
+        <ion-col>
+          <div class="input_icon">
+                <img [src]="'./assets/icon/ems.png'" class="ems_icon" /> 
+                <span class="text_label">EMS</span>
+          </div>
+          <ion-item no-lines no-padding no-margin>
+            <ion-input class="login-input" type="ems" placeholder="EMS번호를 입력하세요." [(ngModel)]="ems"></ion-input>
+          </ion-item>
+        </ion-col> 
+      </div>
+      <div class="id_input">
+          <div class="left-part">
+            <button class="login-button" full ion-button icon-end (click)="createNotice('ems')">
+              알림예약
+            </button>
+          </div>    
+          <div class="right-part">
+            <button class="login-button" full ion-button icon-end (click)="gotoCargoLog()">
+              조회하기
+            </button>
+          </div>
+      </div>
+    </ion-row>
+    <ion-row class="sd_content" *ngIf="tabSelect == 'sd'">
+          <div class="login-input-group">
+            <ion-col>
+              <div class="input_icon">
+                    <img [src]="'./assets/icon/ems.png'" class="ems_icon" /> 
+                    <span class="text_label">B/L</span>
+              </div>
+              <ion-item no-lines no-padding no-margin>
+                <ion-input class="login-input" type="b_l" placeholder="B/L번호를 입력하세요." [(ngModel)]="b_l"></ion-input>
+              </ion-item>
+            </ion-col> 
+          </div>
+          <div class="login-input-group">
+              <ion-col>
+                <div class="input_icon">
+                      <img [src]="'./assets/icon/year.png'" class="year_icon" /> 
+                      <span class="text_label">년도</span>
+                </div>
+                <ion-item no-lines no-padding no-margin>
+                  <ion-input class="login-input" type="year" placeholder="년도를 선택하세요." [(ngModel)]="year"></ion-input>
+                </ion-item>
+              </ion-col> 
+          </div>
+          <div class="id_input">
+              <div class="left-part">
+                <button class="login-button" full ion-button icon-end (click)="createNotice('b_l')">
+                  알림예약
+                </button>
+              </div>    
+              <div class="right-part">
+                <button class="login-button" full ion-button icon-end (click)="gotoCargoLog()">
+                  조회하기
+                </button>
+              </div>
+          </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer *ngIf="!keyboard.isOpen()">
+    <main-footer tab="view"></main-footer>
+</ion-footer>

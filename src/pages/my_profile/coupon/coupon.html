@@ -1,0 +1,100 @@
+<ion-row class="navar_top">
+        <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+        <div class="title_label" *ngIf="tabSelect == 'coupon'">쿠폰</div>
+        <div class="title_label" *ngIf="tabSelect == 'fund'">적립금</div>
+</ion-row>
+<ion-content class="page-content">
+    <ion-grid class="section">
+        <ion-row class="row_line1">
+          <span class="my_email">{{ user_id }}</span> 
+        </ion-row>
+        <ion-row class="row_line2">
+          GREEN / {{ user_tel }}
+        </ion-row>
+        <ion-row class="tabs">
+              <ion-col [class.active]="tabSelect == 'coupon'" (click)="tab_choose('coupon')">  
+                  쿠폰
+              </ion-col>
+              <ion-col [class.active]="tabSelect == 'fund'" (click)="tab_choose('fund')">  
+                  적립금
+              </ion-col>
+        </ion-row>
+        <div class="coupon_content" *ngIf="tabSelect == 'coupon'">
+                <ion-row class="margin-top id_input">
+                      <ion-col><ion-label no-lines no-padding no-margin>바슘의 쿠폰 번호를 입력하세요.</ion-label></ion-col> 
+                </ion-row> 
+                <ion-row class="id_input">
+                      <ion-col class="button_line"><ion-item no-lines no-padding no-margin>
+                              <ion-input class="login-input" type="coupon_code" placeholder="쿠폰번호" [(ngModel)]="coupon_code"></ion-input>
+                          </ion-item>
+                          <button class="login-button blue_button issue_button" id="get_verification_code" full ion-button icon-end (click)="issueCoupon()">
+                              발급받기
+                          </button>
+                      </ion-col> 
+                </ion-row> 
+                <ion-row class="description">
+                    <ul>
+                        <li>바슘 회원이어야 발급받을수 있습니다.</li>
+                        <li>쿠폰은 유효기간이 있습니다.</li>
+                        <li>쿠폰에 따라 금액 제한이 있을수 있습니다.</li>
+                    </ul>
+                </ion-row>
+                
+                <ion-row class="discount" *ngFor="let result_item of result_list">
+                      <div class="discount_value" [class.backgroundred]="result_item.coupon_type == 'B'">
+                          {{ result_item.coupon_type=="B"?result_item.discount_amount:result_item.discount_rate + '%할인' }}  
+                      </div>
+                      <div class="discount_content">
+                          <div class="dis_coupon">{{ result_item.coupon_name }}</div>
+                          <div class="dis_date">{{ getDateFormat(result_item.last_effective_date) }} 까지</div>
+                      </div>
+                </ion-row>
+        </div>
+        <div class="fund _content" *ngIf="tabSelect == 'fund'">
+              <ion-row class="fund_line1 margin-top">
+                  <div class="fund_status">마일리지 현황</div>
+                  <div class="fund_value">₩{{ user['user_mileage'] }}</div>
+              </ion-row>
+              <ion-row class="fund_line2 margin-top">
+                  <ul>
+                      <li>마일리지는 부여된 해로부터 2년 이내에 사용하셔야 합니다.</li>
+                      <li>2년이 지난 미사용 적립금은 소멸됩니다.</li>
+                  </ul>
+              </ion-row>
+              <ion-row class="tabs second">
+                      <ion-col [class.active]="subtabSelect == 'save'" (click)="subtab_choose('save')">  
+                          적립
+                      </ion-col>
+                      <ion-col [class.active]="subtabSelect == 'use'" (click)="subtab_choose('use')">  
+                          사용
+                      </ion-col>
+              </ion-row>
+              <div class="save_content" *ngIf="subtabSelect == 'save'">
+                  <table>
+                      <thead align="center">
+                          <th width="25%">적용일자</th> <th width="25%">적용내용</th> <th width="25%">마일리지</th> <th width="25%">관련B/L번호</th>
+                      </thead>
+                      <tbody align="center">
+                          <tr *ngFor="let result_item of mileage_list">
+                              <td>{{ result_item.mileage_dt }}</td> <td>{{ result_item.mileage_type }}</td> 
+                              <td>{{ result_item.mileage_amount }}</td> <td>{{ result_item.base_bl }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="use_content" *ngIf="subtabSelect == 'use'">
+                  <table>
+                      <thead align="center">
+                          <th width="25%">적용일자</th> <th width="25%">적용내용</th> <th width="25%">마일리지</th> <th width="25%">관련B/L번호</th>
+                      </thead>
+                      <tbody align="center">
+                          <tr *ngFor="let result_item of mileage_list">
+                                  <td>{{ result_item.mileage_dt }}</td> <td>{{ result_item.mileage_type }}</td> 
+                                  <td>{{ result_item.mileage_amount }}</td> <td>{{ result_item.base_bl }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+        </div>
+    </ion-grid>
+  </ion-content>

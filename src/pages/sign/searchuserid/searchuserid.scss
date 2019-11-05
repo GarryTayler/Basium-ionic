@@ -1,0 +1,122 @@
+page-searchuserid {
+    .logo-container {
+        justify-content: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .login-content {
+        background: #F5F6F8;
+    }
+    .login-input-group {
+        .col .item-md.item-block .item-inner {
+            padding-right: 0px; 
+        }
+        .login-input input {
+            margin-bottom: 0px;
+            width: 100%; margin-left: 0px; margin-right: 0px;
+            padding-bottom: 10px; background: 0 0; border: 0;
+            border-bottom: 2px solid #f6f6f6;
+            -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0;
+            border-radius: 0; color: #555; box-shadow: none; padding-left: 0;
+            padding-right: 0; font-size: 14px; 
+        }
+    }
+    .login-input-checkbox {
+        ion-col {
+            display: flex;
+            align-items: center;
+            span {
+                line-height: 12px; margin-left: 10px;
+                color: #999; font-size: 12px;
+            }
+            ion-checkbox {
+                .checkbox-icon {
+                    border-color: #999 !important;
+                }
+                .checkbox-checked {
+                    border-color: #999; background-color: #999;
+                }
+            }
+        }
+    }
+    .button-group {
+        justify-content: space-around;    
+        .left-part {
+            width: 23%;    
+            button {
+                background: #999;
+                span.button-inner {
+                    font-weight: 100;
+                }
+            }
+        }
+        .right-part {
+            width: 69%;
+            button {
+                background: #00529a;
+                span.button-inner {
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+    .id-password-find {
+        .id-find {
+            border-right: 1px solid #999;
+        }
+        .col {            
+            ion-label {
+                font-size: 13px; color: #999; margin: 0;    
+            }
+        }    
+    }
+    .accept-container {
+        .termandservice {
+            border-right: 1px solid #999;
+            padding-right: 15px;
+        }
+        .privacy {
+            padding-left: 15px;
+        }
+        .col {            
+            ion-label {
+                font-size: 13px; color: #999; margin: 0;    
+            }
+        }    
+    }
+    .login-footer .col label {
+        font-size: 12px; color: #999;
+    }
+    .login-footer {
+        position: absolute; bottom: 20px; left: 50%;
+    }
+    .login-footer .col {
+        position: relative;
+        left: -50%;   
+    }
+    .mail_resend {
+        font-size: 12px; text-decoration: underline;
+        color: #999; font-weight: 100; margin-top: 10px;   
+    }
+    .findid {
+        font-size: 12px; color: #999; font-weight: 100; margin-top: 10px;   
+        span {
+            text-decoration: underline;
+        }
+    }
+    .receive_button {
+        bottom: 4px;
+        position: absolute; z-index: 100; right: 0; height: 30px;
+        padding-left: 15px; padding-right: 15px; 
+    }
+    .mobile_input {
+        margin-top: 15px;
+    }
+    .border-boundary {
+        border-top: 2px solid #f6f6f6;
+        margin-top: 40px; margin-left: 0px; margin-right: 0px;       
+    }
+    body.keyboard-open .login-footer{	
+        display: none;
+    }
+}

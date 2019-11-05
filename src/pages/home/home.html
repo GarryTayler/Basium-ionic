@@ -1,0 +1,113 @@
+<ion-header>
+  <main-header ></main-header>
+</ion-header>
+<ion-content class="page-content">
+<ion-grid class="section">
+    <ion-row class="slide_container margin-top">
+        <ion-slides #slides *ngIf="result_list && result_list.length" pager="true" autoplay="4000" loop="true" speed="500" (ionSlideDidChange)="slideChanged()">            
+          <ion-slide *ngFor="let result_item of result_list"  [style.backgroundImage]="'url(' + result_item.banner_url + ')'" (click)="clickBackground(result_item.banner_link_url)">  
+            <div class="walkthrough-pane">
+            </div>
+          </ion-slide>
+        </ion-slides>  
+    </ion-row>
+
+    <ion-row class="panel_div">
+      <div class="panel_title">
+          최신 공지사항
+      </div>
+      <div class="panel_body" *ngIf="announcement_list.length == 0">
+              <div class="panel_detail"  style="align-items:center;">
+                  최신 공지사항이 없습니다.
+              </div>
+      </div>
+      <div class="panel_body" *ngIf="announcement_list.length > 0">
+          <div *ngFor="let result_item of announcement_list; let i = index">
+              <div class="panel_detail align_column" (click)="detailClick(i)">
+                      <span class="reg_date">{{ result_item.reg_date }}</span>
+                      <span class="notice">{{ result_item.title }}</span>
+              </div>
+              <div class="announce_desc" *ngIf="a_selected == i">
+                      <p style="white-space: pre-line" [innerHTML]="result_item.contents"></p>
+              </div>
+          </div>
+      </div>
+    </ion-row>
+
+    <ion-row class="panel_div">
+        <div class="panel_title">
+            진행중인 통관내역
+        </div>
+        <div class="panel_body" *ngIf="entry_list.length == 0">
+              <div class="panel_detail"  style="align-items:center;">
+                  진행중인 통관내역이 없습니다.
+              </div>
+        </div>
+        <div class="panel_body running_panel" *ngIf="entry_list.length > 0">
+            <div class="panel_detail" style="align-items:center;" *ngFor="let result_item of entry_list" (click)="goDetail( result_item.reg_number )">
+                <div>
+                    <img [src]="'./assets/icon/line_2.png'" class="line_img" /> 
+                    <span class="current_val">{{ result_item.step1 }}</span>
+                    <span class="total_val">4</span>
+                </div>
+                <div class="align_column">
+                    <span class="notice">{{ result_item.item_nm }}</span>
+                    <span class="reg_date">{{ result_item.last_update_dt }}</span>
+                </div>
+                <div class="space">
+                </div>
+                <div>
+                    <button class="login-button apply_button" [class.grey_button]="result_item.step1 == '4'" [class.white_button]="result_item.step1 == '1' || result_item.step1 == '2'" [class.blue_button]="result_item.step1 == '0' || result_item.step1 == '3'" ion-button icon-end>
+                      {{ result_item.step_nm }}
+                    </button>  
+                </div>
+            </div>
+        </div>        
+    </ion-row>
+
+    <ion-row class="panel_div">
+        <div class="panel_title">
+            등록된 알림내역
+        </div>
+        <div class="panel_body" *ngIf="notice_list.length == 0">
+              <div class="panel_detail"  style="align-items:center;">
+                      등록된 알림내역이 없습니다.
+              </div>
+         </div>
+        <div class="panel_body" *ngIf="notice_list.length > 0">
+            <div class="panel_detail registered_notice" *ngFor="let result_item of notice_list">
+                <div class="align_column">
+                    <span class="notice">{{ result_item.number }}</span>
+                    <span class="reg_date">{{ result_item.reg_dt }}</span>
+                </div>
+                <div>
+                    <button class="login-button grey_button remove_button" ion-button icon-end (click)="removeNotice(result_item.cargo_alert_sq)">
+                        삭제
+                    </button>  
+                </div>    
+            </div>
+        </div>
+    </ion-row>
+
+    <ion-row class="company_info">
+        <div class="company_name"> 고객센터: </div>        
+        <div class="phone_number"> 070-4800-6317 </div>
+    </ion-row>
+
+    <ion-row class="company_detail">
+        <div>
+            베스트 관세사무소 | 대표이사: 서창길
+        </div>
+        <div>
+            사업자등록번호: 121-11-31922
+        </div>
+        <div>
+            인천시 중구 공항동로296번길87 사업지원센터 404-405호
+        </div>
+    </ion-row>
+
+</ion-grid>
+</ion-content>
+<ion-footer class="hide-on-keyboard-open">
+<main-footer tab="home"></main-footer>
+</ion-footer>

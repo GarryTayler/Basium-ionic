@@ -1,0 +1,84 @@
+<ion-headerbar>
+    회원가입
+</ion-headerbar>
+<ion-content padding class="login-content">
+  <ion-grid>
+    <ion-row class="terms_service_1 margin-top">
+      <div class="row-align">
+        <ion-checkbox class="require_service" mode="ios" [(ngModel)]="checkbox_1" (click)="click_all()"></ion-checkbox>
+        <div class="underline">
+            이용약관, 개인정보 수집 및 이용, <br/>
+            위치정보 이용약관(선택), 프로모션 안내 <br/>
+            메일 수신(선택)에 모두 동의합니다.
+        </div>
+      </div>
+    </ion-row>
+    <ion-row class="terms_service_2 margin-top">
+        <div class="row-align">
+          <ion-checkbox class="require_service" mode="ios" [(ngModel)]="checkbox_2" (click)="click_checkbox()"></ion-checkbox>
+          <div>
+              <strong>바슘 이용약관 동의</strong><span class="require_label"> (필수)</span>
+          </div>
+        </div>
+        <div class="service_detail" *ngIf="result_list.length > 0">
+          <div class="detail_content1">
+              <p style="white-space: pre-line" [innerHTML]="result_list[0].contents"></p>
+          </div>
+        </div>
+    </ion-row>
+    <ion-row class="terms_service_3 margin-top">
+        <div class="row-align">
+          <ion-checkbox class="require_service" mode="ios" [(ngModel)]="checkbox_3" (click)="click_checkbox()"></ion-checkbox>
+          <div>
+              <strong>개인정보 수집 및 이용에 대한 안내</strong><span class="require_label"> (필수)</span>
+          </div>
+        </div>
+        <div class="service_detail" *ngIf="result_list.length > 1">
+          <div class="detail_content1">
+              <p style="white-space: pre-line" [innerHTML]="result_list[1].contents"></p>
+          </div>
+        </div>
+    </ion-row>
+    <ion-row class="terms_service_4 margin-top">
+        <div class="row-align">
+          <ion-checkbox class="require_service" mode="ios" [(ngModel)]="checkbox_4" (click)="click_checkbox()"></ion-checkbox>
+          <div>
+              <strong>바슘 면책에 대한 안내</strong><span class="require_label"> (필수)</span>
+          </div>
+        </div>
+        <div class="service_detail" *ngIf="result_list.length > 2">
+            <div class="detail_content1">
+                {{ result_list[2].title }} <br/><br/>
+                <p style="white-space: pre-line" [innerHTML]="result_list[2].contents"></p>
+            </div>
+        </div>
+    </ion-row>
+    <ion-row class="terms_service_5 margin-top">
+        <div class="row-align">
+          <ion-checkbox class="require_service" mode="ios" [(ngModel)]="checkbox_5" (click)="click_checkbox()"></ion-checkbox>
+          <div>
+              <strong>이벤트 등 프로모션 알림 메일 수신</strong><span class="unrequire_label"> (선택)</span>
+          </div>
+        </div>
+    </ion-row>
+    <ion-row class="terms_service_6 margin-top">
+        <ion-col size="3">
+            <button class="login-button grey_button" full ion-button icon-end (click)="back()">
+              비동의
+            </button>
+        </ion-col>
+        <ion-col size="3">
+            <button class="login-button blue_button" full ion-button icon-end (click)="signup()">
+              동의
+            </button>
+        </ion-col>
+    </ion-row>
+    <ion-row class="login-footer margin-top">
+      <ion-col text-center>
+        <label>
+            © BEST CUSTOMS Corp.
+        </label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

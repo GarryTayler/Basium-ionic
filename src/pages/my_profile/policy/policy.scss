@@ -1,0 +1,49 @@
+page-policy {
+    .page-content {
+        .navar_top {
+            justify-content: center; width: 100%;
+            padding-top: 10px; padding-bottom: 10px;
+            background: #f7f7f7; align-items: center; 
+            left: 15px; top: 0; position: absolute; z-index: 10;
+            .close_icon {
+                position: absolute;
+                padding: 8px 15px 8px 15px;
+                left: 0px;
+            }
+            .title_label {
+                font-weight: 500;
+            }
+        }
+        //panel title & body css
+        .panel_div {
+            border-bottom: 1px solid #f5f5f5;
+            margin-left: 5px; margin-right: 5px; 
+            flex-direction: column; padding-left: 0px; padding-right: 0px;    
+        }
+        .panel_title {
+            background: #f2f2f2; padding: 5px 20px 5px 20px; font-weight: 500;           
+        }
+        .panel_detail {
+            border-bottom: 1px solid #f5f5f5;
+            display: flex; padding: 10px 10px 10px 10px;   
+        }
+        .align_column {
+            flex-direction: column; display: flex;
+        }
+        .align_row {
+            flex-direction: row; display: flex;
+        }
+        .reg_date {
+            color: #bbbbbb; font-size: 11px;  line-height: 30px;
+        }
+        .registered_notice {
+            align-items: center; justify-content: space-between;
+        }
+        ion-row:last-child  {
+            margin-bottom: 20px;
+        }
+        .notice {
+            font-weight: 500; font-size: 14px;
+        }
+    }
+}

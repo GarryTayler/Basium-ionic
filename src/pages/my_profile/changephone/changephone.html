@@ -1,0 +1,23 @@
+<ion-row class="navar_top">
+    <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+    <div class="title_label">휴대전화번호 변경</div>
+</ion-row>
+<ion-content padding class="login-content">
+<ion-grid>
+  <ion-row style="font-weight: 600; margin-bottom: 5px;">
+    휴대전화
+  </ion-row>
+  <ion-row class="input_row">
+      <input class="login-input" placeholder="휴대전화번호를 입력하세요." [(ngModel)]="user_tel" />
+      <button class="login-button blue_button receive_button" ion-button icon-end (click)="sendVerifyRequest()">
+          인증문자 받기
+      </button>
+  </ion-row>
+  <ion-row class="input_row" style="margin-top: 15px;">
+      <input class="login-input" placeholder="인증번호를 입력하세요." [(ngModel)]="code" />
+      <button class="login-button blue_button receive_button" ion-button icon-end (click)="confirm()">
+          확인
+      </button>
+  </ion-row>
+</ion-grid>
+</ion-content>

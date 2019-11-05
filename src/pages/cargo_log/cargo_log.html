@@ -1,0 +1,230 @@
+<ion-row class="navar_top">
+        <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+        <div class="title_label">{{ prev_tab == 'ems'? ems : b_l }}</div>
+</ion-row>
+<ion-content class="page-content">
+    <ion-grid class="section">
+        <ion-row class="tabs">
+              <ion-col [class.active]="tabSelect == 'progress'" (click)="tab_choose('progress')">  
+                  진행상태
+              </ion-col>
+              <ion-col [class.active]="tabSelect == 'ems'" (click)="tab_choose('ems')" *ngIf="prev_tab == 'ems'">  
+                  EMS정보
+              </ion-col>
+              <ion-col [class.active]="tabSelect == 'cargo_info'" (click)="tab_choose('cargo_info')" *ngIf="prev_tab == 'sd'">  
+                  화물정보
+              </ion-col>
+        </ion-row>
+        <div class="progress_content" *ngIf="tabSelect == 'progress'">
+              <ion-row class="panel_div" *ngFor="let result_item of result.history">
+                  <div class="panel_body running_panel">
+                    <div class="panel_detail" style="align-items:center;">
+                          <div class="nomer">
+                                  {{ result_item.step }}
+                          </div>
+                          <div class="align_column">
+                                  <span class="notice">{{ result_item.step_nm }}</span>
+                                  <span class="reg_date">{{ result_item.update_dt }}</span>
+                          </div>
+                     </div>
+                  </div>
+              </ion-row>
+        </div>
+        <div class="ems_content" *ngIf="tabSelect == 'ems'">
+              <ion-row class="panel_div" *ngIf="result.hasOwnProperty('ems_info') && result.ems_info.hasOwnProperty('tamt')">
+                  <div class="panel_title">
+                      통관정보
+                  </div>
+                  <div class="panel_body">
+                      <div class="panel_detail ems">
+                          <div class="align_column">
+                              <span class="reg_date">통관관리번호</span>
+                              <span class="notice">{{ result.ems_info.psmtCsclMtNo }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">EMS(우편물) 번호</span>
+                                  <span class="notice">{{ result.ems_info.psmtNo }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">처리구분</span>
+                                  <span class="notice">{{ result.ems_info.psmtPrcsTpcd }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">우체국명</span>
+                                  <span class="notice">{{ result.ems_info.csclPsofCd }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">우편물 종류</span>
+                                  <span class="notice">{{ result.ems_info.psmtKcd }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">처리상태</span>
+                                  <span class="notice">{{ result.ems_info.psmtPrcsStcd }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">반입일자</span>
+                                  <span class="notice">{{ result.ems_info.brngArvlDt }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">발송국가</span>
+                                  <span class="notice">{{ result.ems_info.sendCntyCdNm }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">수취인명</span>
+                                  <span class="notice">{{ result.ems_info.rcivrNm }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">우편요금</span>
+                                  <span class="notice">{{ result.ems_info.postCrge }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">우편통화코드</span>
+                                  <span class="notice">{{ result.ems_info.postCurrCd == null?'-':result.ems_info.postCurrCd }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">총중량</span>
+                                  <span class="notice">{{ result.ems_info.ttwg }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">총중량 단위</span>
+                                  <span class="notice">{{ result.ems_info.ttwgUtCd }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">통관일자</span>
+                                  <span class="notice">{{ result.ems_info.aprvDt }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">한산과세여부</span>
+                                  <span class="notice">{{ result.ems_info.adupTxTrgtTpcd }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">세액(원)</span>
+                                  <span class="notice">{{ result.ems_info.tamt }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">통관절차 대행수수료(원)</span>
+                                  <span class="notice">{{ result.ems_info.homeDelivery }}</span>
+                          </div>
+                          <div class="align_column">
+                                  <span class="reg_date">합계(원)</span>
+                                  <span class="notice">{{ result.ems_info.alSum }}</span>
+                          </div>
+                      </div>
+                  </div>
+              </ion-row>
+        </div>
+        <div class="ems_content" *ngIf="tabSelect == 'cargo_info'">
+                  <ion-row class="panel_div" *ngIf="result.hasOwnProperty('cargo_info') && result.cargo_info.hasOwnProperty('mrn_no')">
+                      <div class="panel_title">
+                          기본정보
+                      </div>
+                      <div class="panel_body">
+                          <div class="panel_detail ems">
+                              <div class="align_column">
+                                  <span class="reg_date">화물관리번호</span>
+                                  <span class="notice">{{ result.cargo_info.mrn_no }}</span>
+                              </div>
+                              <div class="align_column">
+                                      <span class="reg_date">B/L 번호</span>
+                                      <span class="notice">{{ result.cargo_info.bl }}</span>
+                              </div>
+                              <div class="align_column">
+                                      <span class="reg_date">화물구분</span>
+                                      <span class="notice">{{ result.cargo_info.cargo_gb }}</span>
+                              </div>
+                              <div class="align_column">
+                                      <span class="reg_date">처리상태</span>
+                                      <span class="notice">{{ result.cargo_info.step }}</span>
+                              </div>
+                              <div class="align_column">
+                                      <span class="reg_date">통관진행상태</span>
+                                      <span class="notice">{{ result.cargo_info.cus_step }}</span>
+                              </div>
+                          </div>
+                      </div>
+                  </ion-row>
+                  <ion-row class="panel_div" *ngIf="result.hasOwnProperty('cargo_info') && result.cargo_info.hasOwnProperty('mrn_no')">
+                          <div class="panel_title">
+                                  화물정보
+                          </div>
+                          <div class="panel_body">
+                                  <div class="panel_detail ems">
+                                  <div class="align_column">
+                                          <span class="reg_date">품명</span>
+                                          <span class="notice">{{ result.cargo_info.pum_nm }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">B/L유형</span>
+                                          <span class="notice">{{ result.cargo_info.bl_type }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">관리대상지정</span>
+                                          <span class="notice">{{ result.cargo_info.check_gb }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">포장/총중량</span>
+                                          <span class="notice">{{ result.cargo_info.packing }}/{{ result.cargo_info.weight }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">컨테이너</span>
+                                          <span class="notice">{{ result.cargo_info.container }}개</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">용적</span>
+                                          <span class="notice">{{ (result.cargo_info.cbm == '' || result.cargo_info.cbm == null)?'-':result.cargo_info.cbm  }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">특수화물</span>
+                                          <span class="notice">{{ (result.cargo_info.special_cargo == '' || result.cargo_info.special_cargo == null)?'-':result.cargo_info.special_cargo  }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">반출의무과태료</span>
+                                          <span class="notice">{{ (result.cargo_info.penalty == '' || result.cargo_info.penalty == null)?'-':result.cargo_info.penalty  }}</span>
+                                  </div>
+                                  </div>
+                          </div>
+                  </ion-row>
+                  <ion-row class="panel_div" *ngIf="result.hasOwnProperty('cargo_info') && result.cargo_info.hasOwnProperty('mrn_no')">
+                          <div class="panel_title">
+                                  입항정보
+                          </div>
+                          <div class="panel_body">
+                                  <div class="panel_detail ems">
+                                  <div class="align_column">
+                                          <span class="reg_date">선(항공)사</span>
+                                          <span class="notice">{{ result.cargo_info.ship_comp }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">선(편)명</span>
+                                          <span class="notice">{{ result.cargo_info.ship_nm }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">선박국적</span>
+                                          <span class="notice">{{ result.cargo_info.ship_cc }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">선박대리점</span>
+                                          <span class="notice">{{ (result.cargo_info.ship_agency == '' || result.cargo_info.ship_agency == null)?'-':result.cargo_info.ship_agency }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">적재항</span>
+                                          <span class="notice">{{ result.cargo_info.loading_port }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">양륙항</span>
+                                          <span class="notice">{{ result.cargo_info.landing_port }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">입항일자</span>
+                                          <span class="notice">{{ result.cargo_info.arrival_date }}</span>
+                                  </div>
+                                  <div class="align_column">
+                                          <span class="reg_date">항차</span>
+                                          <span class="notice">{{ (result.cargo_info.number_of_landing == '' || result.cargo_info.number_of_landing == null)?'-':result.cargo_info.number_of_landing  }}</span>
+                                  </div>
+                                  </div>
+                          </div>
+                  </ion-row>
+            </div>
+    </ion-grid>
+  </ion-content>

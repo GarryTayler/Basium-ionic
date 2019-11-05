@@ -1,0 +1,61 @@
+<ion-row class="navar_top">
+        <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+        <div class="title_label">1:1문의</div>
+        <div class="inquiry_label" (click)="create_inquiry()">문의하기</div>
+</ion-row>
+<ion-content class="page-content">
+  <ion-grid class="section">
+      <ion-row class="row_label1">
+          상담시간
+      </ion-row>
+      <ion-row class="row_label2">
+            평일(월~금) 10::00 ~ 17:00
+      </ion-row>
+      <ion-row class="row_label3">
+            (off-time 12:00 ~ 14:00 , 토/일/공휴일 휴무)
+      </ion-row>
+      <ion-row class="row_label4">
+            <ul>
+                <li>한번 등록한 상담내용은 수정이 불가능합니다.</li>
+            </ul>
+      </ion-row>
+        <div class="inquiry_detail" *ngFor="let result_item of result_list; let i = index">
+            <ion-row class="panel_div" (click)="detailClick(i)">
+                <div class="panel_body running_panel">
+                    <div class="panel_detail" style="align-items:center;">
+                        <div class="align_column">
+                            <div class="reg_date">
+                                <div class="date">{{ result_item.reg_dt }}</div>
+                                <div class="method" [class.red_color]="result_item.step == '내용확인중'" [class.blue_color]="result_item.step == '답변완료'">{{ result_item.step }}</div>
+                            </div>
+                            <span class="notice">{{ result_item.title }}</span>
+                        </div>
+                    </div>
+                </div>
+            </ion-row>    
+            <ion-row class="question_detail" *ngIf="selected == i && result_item.contents != ''">
+                <div class="question_detail_files" *ngIf="result_item.attach_files.length > 0">
+                    <div class="attach_img" *ngFor="let attach_item of result_item.attach_files" (click)="downloadFile(attach_item.dq_attach_url)">
+                    </div>
+                </div>
+                <div class="question_detail_contents">
+                        {{ result_item.contents }}
+                </div>
+            </ion-row>
+            <ion-row class="answer_detail" *ngIf="selected == i && result_item.answer_contents != ''">
+                <div class="blue_color">
+                            답변
+                </div>
+                <div class="blue_answer">
+                    <div class="answer_detail_files" *ngIf="result_item.attach_files.length > 0">
+                            <div class="attach_img" *ngFor="let attach_item of result_item.attach_files" (click)="downloadFile(attach_item.dq_attach_url)">
+                            </div>
+                    </div>
+                    <div class="answer_detail_contents">
+                                    {{ result_item.answer_contents }}
+                    </div>
+                </div>
+            </ion-row>
+        </div>
+  </ion-grid>
+</ion-content>

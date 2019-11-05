@@ -1,0 +1,43 @@
+<ion-headerbar>
+    <img [src]="'./assets/icon/logo.png'" alt="" class="headerbar_logo" />
+    <span>아이디 찾기</span>
+    <ion-icon name="ios-arrow-back" class="back_button" (click)="goback()" ></ion-icon>
+</ion-headerbar>
+<ion-content padding>
+    <ion-grid>
+      <ion-row class="margin-top id_input">
+        <ion-col>
+            <ion-label class="result_msg" no-lines no-padding no-margin>
+                    고객님의 정보와 일치하는 아이디입니다.
+            </ion-label>
+            <ion-label class="email_name" no-lines no-padding no-margin>
+                    {{ userid }}
+            </ion-label>
+          </ion-col> 
+      </ion-row> 
+      <ion-row class="id_input">
+            <ion-col>
+                <ion-label class="mail_resend" no-lines no-padding no-margin>
+                        가입: {{ reg_dt }}
+                </ion-label>
+            </ion-col> 
+       </ion-row> 
+       <ion-row class="id_input margin-top">
+            <button class="login-button blue_button" full ion-button icon-end (click)="signin()">
+                로그인
+            </button>
+        </ion-row> 
+        <ion-row class="id_input">
+            <button class="login-button grey_button" full ion-button icon-end (click)="search_password()">
+                비밀번호 찾기    
+            </button>
+        </ion-row> 
+        <ion-row class="login-footer margin-top" *ngIf="!keyboard.isOpen()">
+            <ion-col text-center>
+            <label>
+                © BEST CUSTOMS Corp.
+            </label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

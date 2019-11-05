@@ -1,0 +1,43 @@
+<ion-headerbar>
+  <img [src]="'./assets/icon/logo.png'" alt="" class="headerbar_logo" />
+  <span>아이디 찾기</span>
+  <ion-icon name="ios-arrow-back" class="back_button" (click)="goback()" ></ion-icon>
+</ion-headerbar>
+<ion-content padding class="login-content">
+<ion-grid>
+  <ion-row class="border-boundary">  
+  </ion-row>
+  <ion-row class="login-input-group mobile_input" style="position: relative;">
+    <ion-col>
+      <ion-item no-lines no-padding no-margin>
+        <ion-input class="login-input" type="mobile" placeholder="휴대 전화번호" [(ngModel)]="mobile"></ion-input>
+      </ion-item>
+      <button class="login-button blue_button receive_button" ion-button icon-end (click)="sendVerifyRequest()">
+          인증문자 받기
+      </button>
+    </ion-col> 
+  </ion-row>
+  <ion-row class="login-input-group">
+    <ion-item no-lines no-padding no-margin>
+        <ion-input class="login-input" type="verify_code" placeholder="인증번호 숫자 6자리" [(ngModel)]="verify_code"></ion-input>
+    </ion-item>
+  </ion-row>
+  <ion-row class="" style="margin-top: 8px;">
+      <ion-label class="mail_resend" no-lines no-padding no-margin (click)="sendVerifyRequest()">
+          인증문자 다시 받기
+      </ion-label>
+  </ion-row>
+  <ion-row class="id_input margin-top">
+      <button class="login-button blue_button" full ion-button icon-end (click)="confirm()">
+          확인
+      </button>
+  </ion-row> 
+  <ion-row class="login-footer margin-top" *ngIf="!keyboard.isOpen()">
+    <ion-col text-center>
+      <label>
+          © BEST CUSTOMS Corp.
+      </label>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

@@ -1,0 +1,15 @@
+sub-header {
+    .sub-header {
+        border: 0; left: 0; top: 0; 
+        position: absolute; z-index: 10; width: 100%;
+        margin: 0px; display: flex; align-items: center;
+        padding-top: 10px; padding-bottom: 10px; padding-left: 10px;  padding-right: 10px;
+        background: #f7f7f7;  justify-content: center;
+        .close_icon {
+            position: absolute; left: 15px;    
+        }
+        .title_label {
+            font-weight: 500;
+        }       
+    }
+}

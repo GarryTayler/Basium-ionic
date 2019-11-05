@@ -1,0 +1,47 @@
+<ion-headerbar>
+    <img [src]="'./assets/icon/logo.png'" alt="" class="headerbar_logo" />
+    <span>인증확인</span>
+    <ion-icon name="ios-arrow-back" class="back_button" (click)="goback()" ></ion-icon>
+</ion-headerbar>
+<ion-content padding>
+    <ion-grid>
+      <ion-row class="margin-top id_input">
+        <ion-col>
+            <ion-label class="email_name" no-lines no-padding no-margin>
+                {{ email }}
+            </ion-label>
+            <ion-label no-lines no-padding no-margin>
+                위 메일로 발송된 링크를 클릭해주세요.
+            </ion-label>
+          </ion-col> 
+      </ion-row> 
+      <ion-row class="margin-top id_input" *ngIf="retry">
+            <ion-col>
+                <ion-item no-lines no-padding no-margin>
+                    <ion-input class="login-input" type="new_email" placeholder="이메일 주소 입력" [(ngModel)]="new_email"></ion-input>
+                </ion-item>
+            </ion-col> 
+       </ion-row> 
+      <ion-row class="id_input">
+            <ion-col>
+                <ion-label class="mail_resend" no-lines no-padding no-margin>
+                    <div (click)="sendVerifyRequest()">
+                        인증메일 다시 받기
+                    </div>
+                </ion-label>
+            </ion-col> 
+       </ion-row> 
+       <ion-row class="id_input margin-top">
+            <button class="login-button blue_button" full ion-button icon-end (click)="gotoSignin()">
+                확인
+            </button>
+        </ion-row> 
+        <ion-row class="login-footer margin-top" *ngIf="!keyboard.isOpen()">
+            <ion-col text-center>
+            <label>
+                © BEST CUSTOMS Corp.
+            </label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

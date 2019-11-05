@@ -1,0 +1,83 @@
+page-notification {
+    .navar_top {
+        left: 21px; position: absolute; width: 100%; z-index: 1001;
+        justify-content: center;
+        padding-top: 10px; padding-bottom: 10px;
+        background: #fff; margin-left: -21px; margin-right: -21px;
+        align-items: center; 
+        .close_icon {
+            position: absolute; left: 15px;    
+        }
+        .title_label {
+            font-weight: 500;
+        }
+        .accept_label {
+            color: #00529a;    
+        }
+    }
+    .scroll-content {
+        margin-top: 20px;
+    }
+    .page-content {
+        //panel title & body css
+        .panel_div {
+            margin-top: 10px; border: 1px solid #f5f5f5; margin-left: 5px;
+            margin-right: 5px; flex-direction: column; padding-left: 0px; padding-right: 0px;    
+        }
+        .panel_detail {
+            border-bottom: 1px solid #f5f5f5; display: flex;
+            padding: 8px 20px 8px 20px;   
+        }
+        .align_column {
+            flex-direction: column; display: flex;
+        }
+        .align_row {
+            flex-direction: row; display: flex;
+        }
+        .reg_date {
+            color: #bbbbbb; font-size: 11px; line-height: 30px;
+        }
+        .remove_button {
+            width: 80px; height: 34px;
+        }
+        .apply_button {
+            width: 100px; height: 34px;
+        }
+        .registered_notice {
+            align-items: center; justify-content: space-between;
+        }
+        .running_panel {
+            .panel_detail {
+                align-items: center;
+                div:nth-child(1) {
+                    position: relative;
+                }
+                div:nth-child(2) {
+                    margin-left: 10px;
+                }
+                .total_val {
+                    position: absolute; bottom: 0px; right: 2px; font-weight: 900;    
+                }
+                .current_val {
+                    position: absolute; top: 0px; font-weight: 900;
+                }
+            }
+        }
+        ion-row:last-child  {
+            margin-bottom: 20px;
+        }
+        .title_bar {
+            margin-top: 48px; align-items: center; display: flex;
+            padding: 0px 21px 0px 21px; margin-bottom: 10px;    
+            ion-col:nth-child(1) {
+                font-size: 24px;
+            }
+            ion-col:nth-child(2) {
+                text-align: right;
+            }
+        }
+        .notice {
+            font-weight: 500;
+        }
+    }
+}

@@ -1,0 +1,116 @@
+page-inquiry_create {
+    .login-content.blur {
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+        filter: blur(4px);    
+    }
+    .login-content {
+        background: #F5F6F8;
+    }
+    .login-input-group {
+        .col .item-md.item-block .item-inner {
+            padding-right: 0px; 
+        }
+        .login-input input {
+            width: 100%; margin-left: 0px; margin-right: 0px;
+            padding-bottom: 7px; background: 0 0; border: 0;
+            border-bottom: 2px solid #f6f6f6;
+            -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0;
+            border-radius: 0; color: #555; box-shadow: none; padding-left: 10px; padding-right: 0;
+            font-size: 14px; 
+        }
+    }
+    .login-input-group.title_row {
+        padding-top: 20px;
+    }
+    .margin-top {
+        margin-top: 30px;
+    }
+    .navar_top {
+        margin-top: -21px; 
+        background: #fff; margin-left: -21px; margin-right: -21px;
+        align-items: center; justify-content: space-between;     
+        .title_label {
+            font-weight: 500;
+        }
+        .accept_label {
+            color: #00529a;    
+            font-size: 12px;
+        }
+        ion-icon {
+            padding: 10px;
+            margin-left: -10px;
+        }
+    }
+    .inquiry_content {
+        width: 100%; border: none; padding: 10px;    
+        font-size: 14px; color: #555;
+    }
+
+    .attach_group {
+        display: flex;
+    }
+    .attach_img {
+        background: #f2f2f2; width: 60px; height: 60px; margin-bottom: 11px;position: relative;     
+        background-size:100% 100%; 
+        .attach_img_count  {
+            background: #00529a; font-size: 12px; color: #fff;
+            border-radius: 100%; padding-left: 5px; padding-right: 5px;
+            position: absolute; bottom: 7px; right: 7px;
+        }
+    }
+    .attach_pdf {
+        width: 50px; height: 60px; margin-bottom: 11px;position: relative; margin-left: 10px; 
+        background-size:100% 100%; 
+        .attach_img_count  {
+            background: #00529a; font-size: 12px; color: #fff;
+            border-radius: 100%; padding-left: 5px; padding-right: 5px;
+            position: absolute; bottom: 7px; right: 7px;
+        }       
+    }
+    .slide-content {   
+        .fixed-content {
+            background: none !important;
+        }
+        background: none !important;
+        //slide css
+        .swiper-slide {
+            background-size: 100% 100%;
+        }
+        .slider-control {
+            z-index: 10; position: absolute; bottom: 22px; color: white;
+            &.skip {
+                left: 12px;
+            }
+            &.next {
+                right: 12px;
+            }
+        }
+    }
+}
+.inquiry_file_asheet  {
+    .action-sheet-group {
+        display: flex;
+    }
+    
+    .action-sheet-md .action-sheet-button {
+        border-right: 2px solid #e7e8e9  !important;
+        border-bottom: 0px !important;
+    }
+    .action-sheet-group button {
+        color: #000 !important;
+        border-right: 2px solid #e7e8e9  !important;
+        border-bottom: 0px !important;
+        .action-sheet-icon {
+            margin: 0 18px 0 0 !important;       
+        }
+    }
+    .action-sheet-md .action-sheet-icon {
+        margin: 0 18px 0 0 !important;   
+    }
+    
+}
+
+

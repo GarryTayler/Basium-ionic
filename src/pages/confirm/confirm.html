@@ -1,0 +1,68 @@
+<ion-content padding class="login-content">
+    <ion-grid>
+      <!--<div class="mainWindow" *ngIf="position=='main'">-->
+        <div class="mainWindow">
+          <ion-row class="navar_top">
+              <div class="cancel_label" (click)="cancel()">취소</div>
+              <div class="title_label">접수자정보 확인</div>
+              <div class="accept_label" (click)="next()">다음</div>
+            </ion-row>
+            <ion-row class="login-input-group" style="padding-top: 20px;">
+              <ion-col>
+                <span class="text_label">통관고유부호</span>
+                <ion-item no-lines no-padding no-margin>
+                  <ion-input class="login-input" type="userid" placeholder="통관고유부호를 입력" [(ngModel)]="pcc"></ion-input>
+                </ion-item>
+                <button class="login-button white_button issue_button" ion-button icon-end (click)="issue()">
+                    발급받기
+                </button>  
+              </ion-col> 
+            </ion-row>
+            <ion-row  class="login-input-group">
+              <ion-col>
+                <span class="text_label">이름</span>
+                <ion-item no-lines no-padding no-margin>
+                    <ion-input class="login-input" type="username" placeholder="이름을 입력하세요." [(ngModel)]="username"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row  class="login-input-group">
+              <ion-col>
+                <span class="text_label">휴대전화번호</span>
+                <ion-item no-lines no-padding no-margin>
+                    <ion-input class="login-input" type="mobile" placeholder="휴대전화번호를 입력하세요." [(ngModel)]="mobile"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row class="id_input">
+                <ion-col>
+                    <ion-label no-lines no-padding no-margin>
+                        주소
+                    </ion-label>
+                    <ion-item no-lines no-padding no-margin (click)="searchAddress()">
+                      <ion-input class="login-input" type="userid" placeholder="주소를 검색하세요." readonly [(ngModel)]="zipcode"></ion-input>
+                    </ion-item>
+                    <ion-item no-lines no-padding no-margin>
+                        <ion-input class="login-input" type="userid" placeholder="" readonly [(ngModel)]="addr"></ion-input>
+                    </ion-item>
+                    <ion-item no-lines no-padding no-margin>
+                        <ion-input #input class="login-input detail_addr" type="userid" placeholder="상세주소" [(ngModel)]="detail_addr"></ion-input>
+                    </ion-item>
+                </ion-col> 
+            </ion-row> 
+      </div>
+      <!--<div class="searchWindow" *ngIf="position=='search'">-->
+          <div class="searchWindow" style="display: none;">
+          <ion-row class="navar_top1">
+              <img [src]="'./assets/icon/close_button.png'" class="close_icon" (click)="close()" /> 
+              <div class="title_label">주소찾기 API</div>
+          </ion-row>
+          <ion-row class="margin-top">
+            <iframe src="http://api.tlogin.net/basium/address" class="iframe" id="iframe" scrolling="yes" style="visibility: hidden;" ></iframe> 
+            <!--<iframe src="http://45.76.180.140/address/" class="iframe" id="iframe" scrolling="yes" style="visibility: hidden;" ></iframe> -->
+          </ion-row>
+          <ion-row class="border-bottom-line">
+          </ion-row>
+      </div>
+    </ion-grid>
+  </ion-content>

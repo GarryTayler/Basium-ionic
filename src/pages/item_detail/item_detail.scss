@@ -1,0 +1,89 @@
+page-item_detail {
+    .page-content.blur {
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+        filter: blur(4px);    
+    }
+    .page-content {
+        .navar_top {
+            justify-content: center;
+            margin-top: -5px; padding-top: 10px; padding-bottom: 10px;
+            background: #f7f7f7; margin-left: -21px; margin-right: -21px;
+            align-items: center; 
+            .close_icon {
+                position: absolute; left: 15px;    
+            }
+            .title_label {
+                font-weight: 500;
+            }
+            .accept_label {
+                color: #00529a;    
+            }
+        }    
+
+        ion-row.item_detail_row {
+            height: 60px; align-items: center;
+            justify-content: space-between; border-bottom: solid 2px #f8f8f8;
+            margin-left: 13px;  margin-right: 13px;
+            padding-left: 0px; padding-right: 0px;           
+            div.left_string {
+                font-size: 12px; font-weight: 500;    
+            }
+            div.right_string {
+                font-weight: 500;   
+            }
+            div.nofile_string {
+                font-weight: 500;   
+                color: #999;
+            }
+            .image {
+                width: 50px; background: #f2f2f2; height: 60px; position: relative;    
+                background-size: 100% 100%;
+                .image_badge {
+                    background: #00529a; color: #fff; font-size: 11px;
+                    padding: 0px 6px 0px 6px; border-radius: 100%;
+                    position: absolute; bottom: 5px; right: 5px;                   
+                }
+            }
+            .pdf {
+                width: 50px; height: 60px; position: relative;    
+                background-size:100% 100%;  margin-left: 20px;
+                .image_badge {
+                    background: #00529a; color: #fff; font-size: 11px;
+                    padding: 0px 6px 0px 6px; border-radius: 100%;
+                    position: absolute; bottom: 5px; right: 5px;                   
+                }
+            }
+        }
+        ion-row.item_detail_row:last-child {
+            border-bottom: solid 0px #f8f8f8;
+        }
+        .attach_items {
+            display: flex; 
+        }
+    }
+
+    .slide-content {
+        
+        .fixed-content {
+            background: none !important;
+        }
+
+        background: none !important;
+        //slide css
+        .swiper-slide {
+            background-size: 100% 100%;
+        }
+        .slider-control {
+            z-index: 10; position: absolute; bottom: 22px; color: white;
+            &.skip {
+                left: 12px;
+            }
+            &.next {
+                right: 12px;
+            }
+        }
+    }
+}

@@ -1,0 +1,99 @@
+page-card_register {
+    .margin-top {
+        margin-top: 30px;
+    }
+    .navar_top {
+        margin-top: -21px; padding-top: 10px; padding-bottom: 10px;
+        background: #fff; margin-left: -21px; margin-right: -21px;
+        align-items: center; justify-content: center;     
+        position: relative;
+        .title_label {
+            font-weight: 500;
+        }
+        .close_icon {
+            position: absolute;
+            padding: 8px 15px 8px 15px;
+            left: 0px;
+        }
+    }
+    .scroll-content {
+        background: #f2f2f2;    
+    }
+    .card_input_box  {
+        background: #fff; border: 2px solid #e4e2e2; flex-direction: column;
+        padding: 0px; margin-top: 10px; margin-left: -10px; margin-right: -10px;
+        .card_reg_info1 {
+            display: flex; flex-direction: row; align-items: center;
+            justify-content: space-between; padding: 10px 7px 10px 7px; border-bottom: 2px solid #eeeeee;
+            .card_bank {
+                display: flex; flex-direction: column; align-items: center;                
+                .bank_name {
+                    background: #00529a; color: #fff; font-size: 11px; font-weight: 100;
+                    padding: 2px 6px 2px 6px; border-radius: 8px;        
+                }
+                .bank_number {
+                    font-size: 17px; font-weight: 500; margin-top: 5px;       
+                }
+            }
+            .card_valid {
+                display: flex; flex-direction: column; align-items: center;   
+                div {
+                    display: flex; margin-top: 5px;
+                    ion-input {
+                        font-size: 16px; width: 40px;
+                    }
+                    span {
+                        line-height: 23px;        
+                    }
+                }
+            }   
+            .card_cvc {
+                display: flex; flex-direction: column; align-items: center;       
+                ion-input {
+                    width: 60px; font-size: 16px;           
+                }
+            }
+        }
+        .card_reg_info2 {
+            display: flex; position: relative; padding: 10px;
+            .card_pwd {
+                width: 50%; display: flex; flex-direction: column;
+                ion-input {
+                    width: 80px; margin-top: 5px; align-self: flex-end; margin-right: 10px;
+                }
+            }   
+            .card_birthday {
+                width: 50%; display: flex; flex-direction: column;                
+                ion-input {
+                    width: 80px; margin-top: 5px; align-self: flex-end;     
+                }
+                span {
+                    margin-left: 10px;
+                }   
+            }
+            .border_line {
+                border: 1px solid #eee; margin-top: -10px; margin-bottom: -10px;                
+            }
+        }
+        .card_number_part {
+            width: 50px; border: 0; text-align: center; font-size: 18px;
+            input {
+                text-align: center;
+            }
+        }
+
+    }   
+    .card_register {
+        position: absolute; bottom: 0px; background: #00529a;
+        color: #fff; width: 100%; left: 15px;
+        padding: 10px 10px 10px 10px; display: flex;
+        justify-content: center; font-size: 18px;    
+    }
+    .text-input-md {
+        margin: 0px 8px;
+    }
+    .card_label1 {
+        color: #999;
+        margin-top: 30px;
+    }
+}

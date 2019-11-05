@@ -1,0 +1,248 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+// Header part
+
+@import "../assets/scss/fontawesome.scss";
+@import "../assets/scss/solid.scss";
+@import "../assets/scss/brands.scss";
+
+.angle-right {
+    @extend %fa-icon;
+    @extend .fas;
+    &:before {
+        content: fa-content($fa-var-angle-right);
+    }
+}
+
+.platform-ios .header-ios {
+    padding-top: 24px;
+}
+
+ion-footer {
+    &::before {
+        background-image: none !important;
+    }
+}
+
+
+.login-button {
+    height: 40px;
+    border-radius: 24px;
+    font-size: 12px;
+    font-weight: bold;    
+    ion-icon {
+        position: absolute;
+        right: 12px;
+        font-size: 30px;
+    }
+}
+
+
+ion-row {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.col {
+    padding: 0px;
+}
+
+.page-content ion-list-header {
+    padding-left: 0px;
+}
+
+[dir="rtl"] input {
+    text-align: right;
+}
+
+.label-ios {
+    margin: 11px 8px 11px 10px;
+}
+
+.alert-ios .alert-radio-icon {
+    margin-left: 12px;
+}
+
+.searchbar-ios {
+    min-height: initial;
+}
+
+
+.modal-filter {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+
+
+ion-headerbar {
+    justify-content: center;
+    font-weight: 600;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 0;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    .back_button {
+        position: absolute;    
+        right: 5px;
+        font-size: 24px;
+        padding-top: 8px; padding-bottom: 8px; padding-left: 15px; padding-right: 15px;
+    }
+}
+.headerbar_logo {
+    position: absolute;
+    left: 20px;
+}
+.margin-top {
+    margin-top: 30px;
+}
+.blue_button {
+    background: #00529a;
+    span.button-inner {
+        font-weight: 400;
+    }
+    padding-left: 5px;
+    padding-right: 5px;
+    box-shadow: none;
+}
+.grey_button {
+    background: #b4b4b4;
+    span.button-inner {
+        font-weight: 400;
+    }
+    padding-left: 5px;
+    padding-right: 5px;
+    box-shadow: none;
+}
+.white_button {
+    background: #fff;
+    color: #000;
+    border: 1px solid #eeeeee;
+    span.button-inner {
+        font-weight: 400;
+    }
+    padding-left: 5px;
+    padding-right: 5px;
+    box-shadow: none;
+}
+.space {
+    margin: 0 auto;
+}
+.margin-top60 {
+    margin-top: 60px;
+}
+.red_color {
+    color: #ff2424;
+}
+.blue_color {
+    color: #00529a;
+}
+.blue_background {
+    background: #00529a !important;
+}
+.scroll-content {
+    padding-bottom: 16px !important;
+    /*padding-left: 16px !important;
+    padding-right: 16px !important; */
+}
+
+body { font-family:'Noto Sans KR'}
+
+span {
+    font-family:'Noto Sans KR';
+}
+
+button {
+    outline: 0 !important;
+}
+
+body.keyboard-open .footer{	
+    bottom: 0;
+    display: none;
+}
+ion-content.keyboard-open div.scroll-content {
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+}
+.close_icon {
+    font-size: 24px;
+}
+.fixed-content {
+    background: #fff; 
+} 
+html, body, ion-app, ion-content, ion-page, .nav-decor {
+    background-color: transparent !important;
+}
+
+.successToast {
+    .toast-message {
+        background: #55ac44;
+    }
+}
+
+ion-backdrop {
+    background-color: #000 !important;
+}
+
+.action-sheet-md .action-sheet-group:last-child {
+    padding-bottom: 0.8rem;
+}
+
+div.action-sheet-group {
+    margin-bottom: 10px;
+    border-radius: 15px;
+    margin-left: 10px;
+    margin-right: 10px;    
+    margin-top: 10px;
+}
+
+div.action-sheet-group.action-sheet-group-cancel {
+    margin-top: 0px !important;
+}
+
+.action-sheet-md .action-sheet-group .button-inner {
+    justify-content: center !important;
+}
+
+.action-sheet-md .action-sheet-button {
+    border-bottom: 2px solid #f3f3f3;    
+    span {
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+.action-sheet-md .action-sheet-button:last-child {
+    border-bottom: 0px solid #f3f3f3;    
+}
+.action-sheet-md .action-sheet-group {
+    background: #fafafa;
+}
+
+.action-sheet-md .action-sheet-container {
+    padding: 0.8rem 0;
+    background: none;
+}
+
+.button-md {
+    box-shadow: none !important;
+}
+

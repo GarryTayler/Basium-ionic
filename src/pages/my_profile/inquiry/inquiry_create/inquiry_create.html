@@ -1,0 +1,42 @@
+<ion-content padding class="login-content" [class.blur]="popup_c">
+  <ion-grid>
+    <ion-row class="navar_top">
+      <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+      <div class="title_label">1:1문의 작성</div>
+      <div class="accept_label" (click)="save()">작성완료</div>
+    </ion-row>
+    <ion-row class="login-input-group title_row">
+      <ion-col>
+        <ion-item no-lines no-padding no-margin>
+          <ion-input class="login-input" type="title" placeholder="제목입력" [(ngModel)]="title"></ion-input>
+        </ion-item>
+      </ion-col> 
+    </ion-row>
+    <ion-row class="attach_group" *ngIf="photo_array.length > 0 || pdf_array.length > 0">
+        <div class="attach_img" (click)="openPopup()" *ngIf="photo_array.length > 0" [style.backgroundImage]="'url(' + returnImage(photo_array[photo_array.length - 1]) + ')'">
+            <span class="attach_img_count"> {{ photo_array.length }}</span>
+        </div>
+        <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="attach_pdf" *ngIf="pdf_array.length > 0">
+          <span class="attach_img_count"> {{ pdf_array.length }}</span>
+        </div>
+    </ion-row>
+    <ion-row class="login-input-group contents_row">
+        <ion-col>
+          <textarea class="inquiry_content" rows="6" placeholder="내용입력 ..." [(ngModel)]="content"></textarea>
+        </ion-col>
+    </ion-row>
+    <ion-row class="id_input margin-top">
+        <button class="login-button blue_button" full ion-button icon-end (click)="addFile()">
+            첨부파일
+        </button>
+    </ion-row> 
+  </ion-grid>
+</ion-content>
+
+<ion-content class="slide-content" *ngIf="popup_c">
+    <ion-slides #slides [pager]="curIndex < slide_count" (ionSlideDidChange)="slideChanged()" class="image-slider" slidesPerView="1" (click)="goback()">
+      <ion-slide *ngFor="let img of images">
+        <img [src]="img" class="thumb-img" imageViewer>
+      </ion-slide>
+    </ion-slides>
+</ion-content>

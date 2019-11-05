@@ -1,0 +1,68 @@
+page-catalog {
+    .page-content {
+        .scroll-content {
+            padding-bottom: 0px !important;
+        }
+        .navar_top {
+            justify-content: center; width: 100%;
+            padding-top: 10px; padding-bottom: 10px;
+            background: #fff; align-items: center; 
+            left: 15px; top: 0; position: absolute; z-index: 10;
+            .close_icon {
+                position: absolute; 
+                padding: 8px 15px 8px 15px;
+                left: 0px;
+            }
+            .title_label {
+                font-weight: 500;
+            }
+        }
+        .swiper-slide {
+            background-size: cover;
+        }
+        .walkthrough-pane {
+            padding: 12px; color: black;
+            font-size: 16px;
+        }
+        .swiper-pagination {
+            bottom: 200px;
+        }
+        .swiper-pagination-bullet {
+            background: white; opacity: 0.6; margin: 0 6px !important;
+            width: 7px; height: 7px;
+            &.swiper-pagination-bullet-active {
+                opacity: 1;
+            }
+        }
+        h1 {
+            font-size: 32px; line-height: 60px; font-weight: 500;
+        }
+        h2 {
+            font-size: 16px;
+        }
+        .login-control {
+            z-index: 10; width: 100%; padding: 24px; position: absolute; bottom: 64px;
+            button {
+                height: 45px;
+            }
+            span {
+                font-family: 'Gotham-Bold';
+            }
+        }
+        .slider-control {
+            z-index: 10; position: absolute; bottom: 22px; color: white;
+            &.skip {
+                left: 12px;
+            }
+            &.next {
+                right: 12px;
+            }
+        }
+        ion-slide {
+            align-items: baseline;
+        }
+        .slide-zoom {
+            margin-top: 40px;
+        }
+    }
+}

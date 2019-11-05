@@ -1,0 +1,9 @@
+<ion-row class="main-header">
+    <ion-col class="header-item logo">
+      <img [src]="'./assets/icon/logo.png'" class="headerlogo" />  
+    </ion-col>
+    <ion-col class="header-item Toolbar" [class.notification_on]="notification == 'on'">
+      <img [src]="'./assets/icon/calculator_icon.png'" class="headerimg" (click)="gotoCalculator()" />
+      <img [src]="notify_icon" class="headerimg" (click)="gotoNotification()" />
+    </ion-col>
+  </ion-row>

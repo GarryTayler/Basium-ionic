@@ -1,0 +1,245 @@
+page-entry_detail {
+    .page-content {
+        .plus_label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;   
+            margin-top: 15px;    
+            .plus_unit {
+                color: #aaa;
+                font-weight: 500;
+            }
+            .plus_value {
+                font-size: 18px;
+                font-weight: 600;
+                color: #ff0000;       
+            }
+            .final_value {
+                font-size: 19px;
+                font-weight: 600;
+                color: #000;       
+            }
+        }
+        // header css
+        .navar_top {
+            justify-content: center; width: 100%;
+            padding-top: 10px; padding-bottom: 10px;
+            background: #fff; align-items: center; 
+            left: 15px; top: 0; position: absolute; z-index: 10;
+            .title_label {
+                font-weight: 500;
+            }
+            .close_icon {
+                position: absolute;
+                padding: 8px 15px 8px 15px;
+                left: 0px;    
+            }
+            .submenu_icon {
+                position: absolute;
+                right: 15px;       
+            }
+        }
+        .prog_layout {
+            position: relative;
+            .cur_prog {
+                font-size: 28px; position: absolute; color: #00529a;
+                left: 65px; top: 40px; font-weight: 600;    
+            }
+            .total_prog {
+                font-size: 28px; position: absolute; color: #000;
+                right: 65px; bottom: 95px; font-weight: 600;        
+            }
+            .span_container {
+                position: absolute; font-size: 10px; color: #999;
+                bottom: 35px; left: 50%;   
+            }
+            .cur_date {
+                position: relative; left: -50%;    
+            }
+            .fee_container {
+                position: absolute; bottom: 55px; left: 50%;             
+            }
+            .fee_text {
+                font-size: 12px; color: #fff; background: #00529a;
+                padding: 4px 10px 4px 10px; border-radius: 15px; left: -50%; position: relative;       
+            }
+        }
+        .progress_container {
+            display: flex; justify-content: center;    
+            margin-top: 60px;
+        }
+        //panel title & body css
+        .panel_div {
+            margin-top: 20px; border: 1px solid #f5f5f5; margin-left: 5px;
+            margin-right: 5px; flex-direction: column; padding-left: 0px; padding-right: 0px;    
+        }
+        .panel_div.item_list {
+            margin-top: 0px;
+        }
+        .panel_title {
+            background: #f2f2f2; padding: 5px 10px 5px 10px; font-weight: 500;           
+        }
+        .panel_detail {
+            border-bottom: 1px solid #f5f5f5; display: flex; padding: 8px 20px 8px 20px;   
+        }
+        .contact {
+            align-items: center; justify-content: space-between;
+        }
+        .reg_date {
+            color: #bbbbbb; font-size: 11px; line-height: 30px;
+        }
+        .align_column {
+            flex-direction: column; display: flex;
+        }
+        .accepter {
+            .align_column {
+                padding-top: 15px; padding-bottom: 15px;
+                .reg_date {
+                    line-height: 11px;
+                    margin-top: 8px;
+                }
+            }
+        }
+        .item_list {
+            .align_column {
+                padding-top: 15px; padding-bottom: 15px;
+                .reg_date {
+                    line-height: 11px;
+                    margin-top: 8px;
+                }
+            }
+        }
+        .align_row {
+            flex-direction: row; display: flex;
+        }
+        .notice {
+            font-weight: 500;
+        }
+        .running_panel {
+            .panel_detail {
+                align-items: center;
+                div:nth-child(1) {
+                    position: relative;
+                }
+                div:nth-child(2) {
+                    margin-left: 15px;
+                }
+                .total_val {
+                    position: absolute; bottom: -4px; right: 2px; font-weight: 600;    
+                }
+                .current_val {
+                    position: absolute; top: -4px; font-weight: 600;
+                }
+            }
+        }
+        .margin-top76  {
+            margin-bottom: 76px;
+        }
+        .fee_label1 {
+            font-size: 20px; font-weight: 600; margin-top: 20px;       
+        }
+        .fee_label2 {
+            margin-top: 20px; justify-content: space-between; color: #00529a;
+            padding-bottom: 10px;
+            margin-left: 5px; margin-right: 5px; padding-left: 5px; padding-right: 5px;    
+        }
+        .margin_bottom_thick {
+            border-bottom: 2px solid #000; 
+        }
+        .fee_unit {
+            font-size: 20px;    
+        }
+        .fee_value {
+            font-size: 24px; font-weight: 600;
+        }
+        .fee_label3 {
+            margin-top: 10px; border: 2px solid #f8f8f8; margin-left: 5px;
+            margin-right: 5px; font-size: 12px; padding-top: 10px;
+            padding-bottom: 10px; color: #ff2828;    
+        }
+        .fee_line {
+            justify-content: space-between; margin-top: 15px;   
+            span:nth-child(1) {
+                color: #999; font-weight: 600;     
+            }
+            span:nth-child(2) {
+                font-size: 18px; font-weight: 600;
+            }
+        }   
+        ion-row {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+        .panel_detail.coupon1 {
+            justify-content: space-between; align-items: center; padding-top: 15px; padding-bottom: 15px;
+            div.coupon_name {
+                font-size: 12px; font-weight: 500;
+            }
+        }
+        .panel_detail.coupon2 {
+            justify-content: space-between; align-items: center;    
+            div.mileage_label {
+                display: flex; align-items: center;       
+                width: calc( 100% - 56px );
+                span.mileage_txt {
+                    font-size: 12px; font-weight: 500; width: 35%;
+                }
+                div {
+                    display: flex; flex-direction: column;    
+                    .mileage_input {
+                        width: 100px; border: 0px; color: #999;       
+                    }
+                    span {
+                        font-size: 12px; color: #999;
+                        label {
+                            color: #00529a;
+                        }
+                    }
+                }   
+            }
+            .apply_button {
+                width: 56px; height: 28px;
+            }
+        }
+    }
+    //footer
+    .class-footer {
+        height: 56px;
+        background: #00529a;
+        left: 15px; bottom: 0; position: absolute; z-index: 10;
+        display: flex; width: 100%; align-items: center;
+        color: #fff;
+        .footer_item_pay {
+            font-weight: 900;
+            font-size: 16px;
+        }
+    }
+    .class-footer1 {
+        height: 56px;
+        background: #00529a;
+        left: 15px; bottom: 0; position: absolute; z-index: 10;
+        display: flex; width: 100%; align-items: center;
+        color: #fff;
+        justify-content: center;
+        .footer_item_pay {
+            font-weight: 500;
+            font-size: 16px;
+        }
+    }
+}
+
+.entry_submenu_asheet {
+    .action-sheet-group {
+        button:nth-child(1) {
+            color: #00529a;    
+        }
+        button:nth-child(2) {
+            color: #ff0404;
+        }
+    }
+    .action-sheet-group.action-sheet-group-cancel {
+        button {
+            color: #000;    
+        }
+    }
+}

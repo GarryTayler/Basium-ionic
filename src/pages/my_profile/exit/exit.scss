@@ -1,0 +1,58 @@
+page-exit {
+    .navar_top {
+        left: 21px; position: absolute; width: 100%; z-index: 1001;
+        justify-content: center;
+        padding-top: 10px; padding-bottom: 10px;
+        background: #fff; margin-left: -21px; margin-right: -21px;
+        align-items: center; 
+        .close_icon {
+            position: absolute;
+            padding: 8px 15px 8px 15px;
+            left: 0px;
+        }
+        .title_label {
+            font-weight: 500;
+        }
+    }
+    .scroll-content {
+        margin-top: 40px;
+    }
+    .page-content {
+        ion-row {
+            margin-left: -2px;
+            margin-right: -2px;
+            margin-top: 15px;
+            div.label_text {
+                margin-left: 15px;
+            }
+        }
+        .main_contents {
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .review_input {
+            padding: 7px;
+            border: 1px solid #ccc;
+            width: 80%;
+        }
+        .exit_button {
+            position: absolute; bottom: 0px; width: 100%; color: white;
+            background: #155199; left: 0; padding-top: 12px; padding-bottom: 12px;
+            display: flex; justify-content: center; font-size: 15px;
+        }
+    }
+    body.keyboard-open .exit_button{	
+        display: none;
+    }
+}
+
+.exit_alert {
+    .alert-message {
+        color: #000 !important;
+    }
+    .alert-button-group {
+        button {
+            color: #00529a;
+        }
+    }
+}

@@ -1,0 +1,99 @@
+page-changephone {
+    .navar_top {
+        left: 21px; position: absolute; width: 100%; z-index: 1001;
+        justify-content: center; width: 100%;
+        padding-top: 10px; padding-bottom: 10px;
+        background: #fff; align-items: center; 
+        left: 15px; top: 0; position: absolute; z-index: 10;
+        .close_icon {
+            position: absolute;
+            padding: 8px 15px 8px 15px;
+            left: 0px;
+        }
+        .title_label {
+            font-weight: 500;
+        }
+    }
+    .scroll-content {
+        margin-top: 30px !important;
+    }
+    .logo-container {
+        justify-content: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .login-content {
+        background: #F5F6F8;
+    }
+  
+    .button-group {
+        justify-content: space-around;    
+        .left-part {
+            width: 23%;    
+            button {
+                background: #999;
+                span.button-inner {
+                    font-weight: 100;
+                }
+            }
+        }
+        .right-part {
+            width: 69%;
+            button {
+                background: #00529a;
+                span.button-inner {
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+   
+    .login-footer .col label {
+        font-size: 12px; color: #999;
+    }
+    .login-footer {
+        position: absolute; bottom: 20px; left: 50%;
+    }
+    .login-footer .col {
+        position: relative;
+        left: -50%;   
+    }
+    .mail_resend {
+        font-size: 12px; text-decoration: underline;
+        color: #999; font-weight: 100; margin-top: 10px;   
+    }
+    .findid {
+        font-size: 12px; color: #999; font-weight: 100; margin-top: 10px;   
+        span {
+            text-decoration: underline;
+        }
+    }
+    .receive_button {
+        height: 30px;
+        padding-left: 15px; padding-right: 15px; 
+    }
+    .mobile_input {
+        margin-top: 15px;
+    }
+    .border-boundary {
+        border-top: 2px solid #f6f6f6;
+        margin-top: 40px; margin-left: 0px; margin-right: 0px;       
+    }
+
+
+    .input_row {
+        position: relative; display: flex; justify-content: space-between; align-items: center;   
+        input {
+            padding: 8px 5px 8px 5px;
+            border: 1px solid #eee;   
+        }
+        button {
+            height: 36px;
+            width: 103px;
+        }
+    }
+
+    .comment_row {
+        margin-top: 15px; font-weight: 600;
+    }
+}

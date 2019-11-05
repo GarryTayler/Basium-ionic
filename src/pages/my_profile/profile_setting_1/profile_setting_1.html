@@ -1,0 +1,95 @@
+<ion-content class="page-content">
+  <ion-grid class="section">
+        <div class="mainWindow" *ngIf="position=='main'">
+            <ion-row class="navar_top">
+                <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+                <div class="title_label">설정</div>
+                <div class="save_button" (click)="save()">저장</div>
+            </ion-row>      
+            <ion-row class="margin-top60 id_input">
+                    <ion-col><ion-label no-lines no-padding no-margin>아이디</ion-label></ion-col> 
+            </ion-row> 
+            <ion-row class="id_input">
+                    <ion-col class="button_line">
+                        <ion-item no-lines no-padding no-margin>
+                            <ion-input class="login-input" type="userid" placeholder="아이디 변경" [(ngModel)]="userid"></ion-input>
+                        </ion-item>
+                        <button class="login-button blue_button" id="get_verification_code" full ion-button icon-end (click)="changeUserId()">
+                            변경
+                        </button>
+                    </ion-col> 
+            </ion-row> 
+            <ion-row class="margin-top id_input">
+                    <ion-col><ion-label no-lines no-padding no-margin>휴대전화번호</ion-label></ion-col> 
+            </ion-row> 
+            <ion-row class="id_input">
+                    <ion-col class="button_line"><ion-item no-lines no-padding no-margin>
+                            <ion-input class="login-input" type="mobile" placeholder="휴대전화번호 변경" value="8201012345678" [(ngModel)]="mobile"></ion-input>
+                        </ion-item>
+                        <button class="login-button blue_button" id="get_verification_code" full ion-button icon-end (click)="changeUserMobile()">
+                            변경
+                        </button>
+                    </ion-col> 
+            </ion-row> 
+            <ion-row class="margin-top id_input">
+                    <ion-col><ion-label no-lines no-padding no-margin>비밀번호</ion-label></ion-col> 
+            </ion-row> 
+            <ion-row class="id_input">
+                    <ion-col class="button_line"><ion-item no-lines no-padding no-margin>
+                            <ion-input class="login-input" type="password" placeholder="비밀번호 변경" value="" [(ngModel)]="password"></ion-input>
+                        </ion-item>
+                        <button class="login-button blue_button" id="get_verification_code" full ion-button icon-end (click)="changeUserPassword()">
+                            변경
+                        </button>
+                    </ion-col> 
+            </ion-row> 
+            <ion-row class="margin-top id_input">
+                    <ion-col>
+                        <ion-label no-lines no-padding no-margin>
+                            통관고유부호
+                        </ion-label>
+                        <ion-item no-lines no-padding no-margin>
+                        <ion-input class="login-input" type="user_pcc" placeholder="통관고유부호를 입력하세요" [(ngModel)]="user_pcc"></ion-input>
+                        </ion-item>
+                    </ion-col> 
+            </ion-row> 
+            <ion-row class="margin-top id_input">
+                    <ion-col>
+                        <ion-label no-lines no-padding no-margin>
+                            이름
+                        </ion-label>
+                        <ion-item no-lines no-padding no-margin>
+                        <ion-input class="login-input" type="name" placeholder="이름을 입력하세요" [(ngModel)]="name"></ion-input>
+                        </ion-item>
+                    </ion-col> 
+            </ion-row> 
+            <ion-row class="margin-top id_input">
+                    <ion-col>
+                        <ion-label no-lines no-padding no-margin>
+                            주소지
+                        </ion-label>
+                        <ion-item no-lines no-padding no-margin (click)="searchAddress()">
+                            <ion-input class="login-input" type="address" placeholder="주소를 검색하세요" [(ngModel)]="zipcode" readonly></ion-input>
+                        </ion-item>
+                        <ion-item no-lines no-padding no-margin>
+                            <ion-input class="login-input" type="user_addr1" placeholder="" [(ngModel)]="user_addr1"></ion-input>
+                        </ion-item>
+                        <ion-item no-lines no-padding no-margin>
+                            <ion-input #input class="login-input" type="user_addr2" placeholder="상세주소를 입력하세요" [(ngModel)]="user_addr2"></ion-input>
+                        </ion-item>
+                    </ion-col> 
+            </ion-row> 
+        </div>
+        <div class="searchWindow" *ngIf="position=='search'">
+                <ion-row class="navar_top1">
+                    <img [src]="'./assets/icon/close_button.png'" class="close_icon" (click)="close()" /> 
+                    <div class="title_label">주소찾기 API</div>
+                </ion-row>
+                <ion-row class="margin-top">
+                     <iframe src="http://api.tlogin.net/basium/address" class="iframe" scrolling="yes" ></iframe> 
+                </ion-row>
+                <ion-row class="border-bottom-line">
+                </ion-row>
+        </div>
+  </ion-grid>
+</ion-content>

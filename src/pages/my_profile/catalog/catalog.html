@@ -1,0 +1,16 @@
+<ion-content class="page-content">
+    <ion-row class="navar_top">
+      <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+      <div class="title_label">이용안내</div>
+    </ion-row>
+    <ion-slides #slides [pager]="true" (ionSlideDidChange)="slideChanged()">
+      <ion-slide [style.backgroundImage]="result_item.bg_img_url!=''?'url(' + result_item.bg_img_url+ ')':'url(./assets/imgs/default.png)'" *ngFor="let result_item of result_list">
+        <div class="walkthrough-pane">
+          <h1>
+            {{ result_item.title }}
+          </h1>
+            {{ result_item.contents }}
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>

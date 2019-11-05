@@ -1,0 +1,210 @@
+page-calculator {
+    .grey_background .scroll-content {
+        background: #969696;    
+    }
+    .scroll-content {
+        padding-bottom: 0px !important;
+    }
+    .login-content {
+        background: #F5F6F8;
+    }
+    .select_category {
+        flex-direction: column;
+        .category_line {
+            border-top: 1px solid #f8f8f8; margin-left: -21px; margin-right: -21px;
+            padding: 15px 12px 15px 12px;
+            font-size: 12px; font-weight: 500;
+            display: flex; align-items: center; justify-content: space-between;
+            background: #fff;
+            span.active {
+                color: #00529a;  
+            }
+            ion-icon {
+                font-size: 18px;       
+            }   
+        }
+        .category_list {
+            display: flex; flex-direction: column; background: #fff;
+            margin-top: 10px; margin-left: -11px; margin-right: -11px; border-radius: 8px;   
+            overflow-y: scroll;
+            .category_item {
+                font-weight: 500; text-align: -webkit-center; padding: 13px; border-bottom: 2px solid #f8f8f8;    
+            }
+            .category_item:last-child {
+                border-bottom: 0px;
+            }
+        }
+        .depth1 {
+            max-height: calc( 100vh - 110px ); 
+        }
+        .depth2 {
+            max-height: calc( 100vh - 159px ); 
+        }
+        .depth3 {
+            max-height: calc( 100vh - 208px ); 
+        }
+        .depth4 {
+            max-height: calc( 100vh - 257px ); 
+        }
+    }
+    .ems_content {
+        flex-direction: column;
+        margin-top: 15px;
+        .header_title {
+            background: #fafafa; font-size: 12px; font-weight: 600;
+            display: flex; padding: 15px; justify-content: space-between;
+            color: #070707; align-items: center; border: 1px solid #f2f2f2;    
+            ion-icon {
+                font-size: 18px;
+            }
+        }
+    }
+    .login-input-group {
+        display: flex; padding-top: 12px; width: 100%;
+        .col .item-md.item-block .item-inner {
+            padding-right: 0px; 
+        }
+        .login-input input {
+            margin-bottom: 0px;
+            width: 100%; margin-left: 0px; margin-right: 0px;
+            padding-bottom: 10px;
+            background: 0 0; border: 0;
+            border-bottom: 2px solid #f6f6f6;
+            -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0;
+            border-radius: 0; color: #555; box-shadow: none;
+            padding-left: 110px; padding-right: 0; font-size: 14px; 
+        }
+        .col .input_icon {
+            bottom: 12px;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            z-index: 100;
+            span {
+                font-size: 12px;
+            }
+        }
+        .col span.text_label {
+            margin-left: 13px;
+            width: 50px;
+        }   
+        .col span.text_label1 {
+            margin-left: 13px;
+            width: 35px;
+        }
+        .col button {
+            position: absolute; z-index: 100; height: 30px; width: 70px;
+            bottom: 4px; right: 0px;
+        }
+        .col ion-toggle {
+            position: absolute; z-index: 100; height: 14px; width: 38px;
+            bottom: 16px; right: 0px;
+        }
+    }
+    .margin-top {
+        margin-top: 30px;
+    }
+    .navar_top {
+        left: 21px; position: absolute; width: 100%; z-index: 1001;
+        justify-content: center; align-items: center; 
+        padding-top: 10px; padding-bottom: 10px;
+        background: #fff; margin-left: -21px; margin-right: -21px;
+        .close_icon {
+            position: absolute; left: 15px;    
+        }
+        .title_label {
+            font-weight: 500;
+        }
+    }
+    .scroll-content {
+        margin-top: 20px;
+    }
+    .id_input {
+        margin-top: 12px; justify-content: space-around; display: flex; width: 100%;
+        margin-bottom: 15px;
+        .left-part {
+            width: 23%;    
+            button {
+                background: #999;
+                span.button-inner {
+                    font-weight: 400;
+                }
+            }
+        }
+        .right-part {
+            width: 69%;
+            button {
+                background: #00529a;
+                span.button-inner {
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+    .panel_div {
+        margin-top: 12px; border: 1px solid #f5f5f5; margin-left: 5px;
+        margin-right: 5px; flex-direction: column; padding-left: 0px; padding-right: 0px;    
+    }
+    .panel_title {
+        background: #f2f2f2; padding: 5px 20px 5px 20px; font-weight: 900;           
+    }
+    .panel_detail {
+        border-bottom: 1px solid #f5f5f5; display: flex; padding: 8px 20px 8px 20px;   
+    }
+    /* ----- */
+    .margin_bottom_thick {
+        border-bottom: 2px solid #000; 
+    }
+    .fee_unit {
+        font-size: 20px;    
+    }
+    .fee_value {
+        font-size: 24px; font-weight: 600;
+    }
+    .fee_label3 {
+        margin-top: 10px; border: 2px solid #f8f8f8; margin-left: 0px;
+        margin-right: 0px; font-size: 12px; padding-top: 10px;
+        padding-bottom: 10px; color: #ff2828;    
+        display: flex; justify-content: center;
+    }
+    .fee_line {
+        justify-content: space-between; margin-top: 15px;   
+        span:nth-child(1) {
+            color: #b3b3b3; font-weight: 400;     
+        }
+        span:nth-child(2) {
+            font-size: 18px; font-weight: 500;
+        }
+    }   
+    .accept_logic {
+        margin-top: 15px;   
+        margin-bottom: 20px;
+    }
+    .red_text {
+        color: #ff2828;           
+    }
+}
+
+
+
+ion-alert.notice-msg111 {
+    align-items: baseline;    
+    .alert-wrapper {
+        max-width: calc( 100% - 30px ) !important;
+        min-width: calc( 100% - 30px ) !important;
+        margin-left: 15px; margin-right: 15px;
+        border-radius: 10px !important; margin-top: 60px;    
+        .alert-head {
+            text-align: -webkit-center;
+            h2 {
+                font-size: 14px;
+            }
+        }
+        .alert-message {
+            font-size: 12px;
+            text-align: -webkit-center;
+            color: #000;
+            font-weight: 500;    
+        }
+    }   
+}

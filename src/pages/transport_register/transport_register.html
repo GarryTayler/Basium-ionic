@@ -1,0 +1,209 @@
+<ion-content padding class="login-content" [class.blur]="popup">
+  <ion-grid>
+    <ion-row class="navar_top">
+      <div class="cancel_label" (click)="prev()">이전</div>
+      <div class="title_label">운송정보 등록</div>
+      <div class="accept_label" (click)="next_page()">다음</div>
+    </ion-row>
+    <ion-row class="tabs">
+      <ion-col class="tab_ems" [class.active]="tabSelect == 'ems'" (click)="tab_choose('ems')">  
+        EMS
+      </ion-col>
+      <ion-col class="tab_bl" [class.active]="tabSelect == 'bl'" (click)="tab_choose('bl')">  
+        특송
+      </ion-col>
+      <ion-col class="tab_hand" [class.active]="tabSelect == 'hand'" (click)="tab_choose('hand')">  
+        휴대품
+      </ion-col>
+    </ion-row>
+    <ion-row class="ems_content">
+      <div class="login-input-group">
+        <ion-col>
+          <span class="text_label">운송장</span>
+          <ion-item no-lines no-padding no-margin>
+            <ion-input class="login-input" type="bl" placeholder="운송장번호를 입력하세요." [(ngModel)]="bl"></ion-input>
+          </ion-item>
+        </ion-col> 
+      </div>
+      <div class="login-input-group">
+        <ion-col>
+          <span class="text_label">수출자</span>
+          <ion-item no-lines no-padding no-margin>
+            <ion-input class="login-input" type="exporter_nm" placeholder="예) www.ebay.com" [(ngModel)]="exporter_nm"></ion-input>
+          </ion-item>
+        </ion-col> 
+      </div>
+      <div class="login-input-group">
+        <ion-col>
+          <span class="text_label">수출국가</span>
+          <ion-item no-lines no-padding no-margin>
+            <ion-input class="login-input" type="exporter_cc_nm" readonly placeholder="직접입력" [(ngModel)]="exporter_cc_nm"></ion-input>
+          </ion-item>
+          <button class="login-button white_button issue_button" ion-button icon-end (click)="selectCountry()">
+              선택하기
+          </button>  
+        </ion-col> 
+      </div>
+      <div class="login-input-group attach_ems no_file">
+        <ion-col  style="display: flex; align-items: center; border-bottom: 2px solid #f6f6f6;">
+          <span class="text_label no_file" style="bottom: 0px;">우편물운송장 <br/> (EMS)</span>
+          <div class="attach_img" (click)="openPopup('ems')" style="display: none;" [style.backgroundImage]="'url(' + returnImage(this.photos['ems']['photo_array'][this.photos['ems']['photo_array'].length - 1]) + ')'">
+            <span class="attach_img_count">0</span>
+          </div>
+          <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="attach_pdf" style="display: none;">
+            <span class="attach_img_count">0</span>
+          </div>
+          <div class="attach_label">
+              파일 없음    
+          </div>
+          <button class="login-button white_button issue_button no_file"  ion-button icon-end (click)="selectSource('ems')">
+              첨부하기
+          </button>  
+        </ion-col> 
+      </div>
+      <!-- <div class="login-input-group">
+          <img [src]="selectedImage" *ngIf="selectedImage" />
+      </div> -->
+    </ion-row>
+    <ion-row class="bl_content" style="display: none;">
+        <div class="login-input-group">
+          <ion-col>
+            <span class="text_label">운송장</span>
+            <ion-item no-lines no-padding no-margin>
+              <ion-input class="login-input" type="bl" placeholder="운송장번호를 입력하세요." [(ngModel)]="bl"></ion-input>
+            </ion-item>
+          </ion-col> 
+        </div>
+        <div class="login-input-group">
+          <ion-col>
+            <span class="text_label">수출자</span>
+            <ion-item no-lines no-padding no-margin>
+              <ion-input class="login-input" type="exporter_nm" placeholder="예) www.ebay.com" [(ngModel)]="exporter_nm"></ion-input>
+            </ion-item>
+          </ion-col> 
+        </div>
+        <div class="login-input-group">
+          <ion-col>
+            <span class="text_label">수출국가</span>
+            <ion-item no-lines no-padding no-margin>
+              <ion-input class="login-input" type="exporter_cc_nm" placeholder="직접입력" [(ngModel)]="exporter_cc_nm"></ion-input>
+            </ion-item>
+            <button class="login-button white_button issue_button" ion-button icon-end (click)="selectCountry()">
+                선택하기
+            </button>  
+          </ion-col> 
+        </div>
+        <div class="login-input-group attach_bl no_file">
+          <ion-col  style="display: flex; align-items: center; border-bottom: 2px solid #f6f6f6;">
+            <span class="text_label no_file">특송(B/L)</span>
+            <div class="attach_img" style="display: none;" (click)="openPopup('bl')" [style.backgroundImage]="'url(' + returnImage(this.photos['bl']['photo_array'][this.photos['bl']['photo_array'].length - 1]) + ')'">
+              <span class="attach_img_count">0</span>
+            </div>
+            <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="attach_pdf" style="display: none;">
+              <span class="attach_img_count">0</span>
+            </div>
+            <div class="attach_label">
+                파일 없음    
+            </div>
+            <button class="login-button white_button issue_button no_file"  ion-button icon-end (click)="selectSource('bl')">
+              첨부하기
+            </button>  
+          </ion-col>
+        </div>
+      </ion-row>
+      <ion-row class="hand_content" style="display: none;">
+          <div class="login-input-group">
+            <ion-col>
+              <span class="text_label">수출자</span>
+              <ion-item no-lines no-padding no-margin>
+                <ion-input class="login-input" type="exporter_nm" placeholder="예) www.ebay.com" [(ngModel)]="exporter_nm"></ion-input>
+              </ion-item>
+            </ion-col> 
+          </div>
+          <div class="login-input-group">
+            <ion-col>
+              <span class="text_label">수출국가</span>
+              <ion-item no-lines no-padding no-margin>
+                <ion-input class="login-input" type="exporter_cc_nm" placeholder="USA" [(ngModel)]="exporter_cc_nm"></ion-input>
+              </ion-item>
+              <button class="login-button white_button issue_button" ion-button icon-end (click)="selectCountry()">
+                  선택하기
+              </button>
+            </ion-col> 
+          </div>
+          <div class="login-input-group attach_hand no_file" >
+            <ion-col style="display: flex; align-items: center; border-bottom: 2px solid #f6f6f6;">
+              <span class="text_label no_file" >휴대품(유치증)</span>
+              <div class="attach_img" style="display: none;" (click)="openPopup('hand')" [style.backgroundImage]="'url(' + returnImage(this.photos['hand']['photo_array'][this.photos['hand']['photo_array'].length - 1]) + ')'">
+                <span class="attach_img_count">0</span>
+              </div>
+              <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="attach_pdf" style="display: none;">
+                <span class="attach_img_count">0</span>
+              </div>
+              <div class="attach_label">
+                  파일 없음    
+              </div>
+              <button class="login-button white_button issue_button no_file"  ion-button icon-end (click)="selectSource('hand')">
+                  첨부하기
+              </button>  
+            </ion-col> 
+          </div>
+          <div class="login-input-group" style="padding-bottom: 15px; border-bottom: 2px solid #f6f6f6;">
+            <ion-col class="business_col">
+              <span class="business_label">사업자여부</span>
+              <!-- <ion-toggle color="primary" ion-toggle-text ng-true-value="so true" ng-false-value="so false" [(ngModel)]="notify" (ngModelChange)="update($event)">
+                  Custom text: <b>{{ notify || 'so false' }}</b>
+              </ion-toggle>
+              -->
+              <label class="switch">
+                <input type="checkbox" id="business_checkbox">
+                <span class="slider round"></span>
+                <span id="yes_label">YES</span>
+                <span id="no_label">NO</span>
+              </label>
+            </ion-col> 
+          </div>
+          <div class="login-input-group attach" [class.no_file]="!photos.hasOwnProperty('business') || (photos['business']['count'] == 0 && photos['business']['pdf_count'] == 0)"  *ngIf="businessYn">
+              <ion-col style="display: flex; align-items: center; border-bottom: 2px solid #f6f6f6;">
+                <span class="text_label" [class.no_file]="!photos.hasOwnProperty('business') || (photos['business']['count'] == 0 && photos['business']['pdf_count'] == 0)">사업자등록증</span>
+                <div class="attach_img" *ngIf="photos.hasOwnProperty('business') && photos['business']['count'] > 0" (click)="openPopup('business')" [style.backgroundImage]="'url(' + returnImage(this.photos['business']['photo_array'][this.photos['business']['photo_array'].length - 1]) + ')'">
+                  <span class="attach_img_count">{{ photos.hasOwnProperty('business') ? photos['business']['count'] : 0 }}</span>
+                </div>
+                <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="attach_pdf" *ngIf="photos.hasOwnProperty('business') && photos['business']['pdf_count'] > 0" [class.no_file]="photos.hasOwnProperty('business') && photos['business']['count'] == 0 && photos['business']['pdf_count'] > 0">
+                  <span class="attach_img_count">{{ photos.hasOwnProperty('business') ? photos['business']['pdf_count'] : 0 }}</span>
+                </div>
+                <div class="attach_label" *ngIf="!photos.hasOwnProperty('business') || (photos['business']['count'] == 0 && photos['business']['pdf_count'] == 0)">
+                    파일 없음    
+                </div>
+                <button class="login-button white_button issue_button" [class.no_file]="!photos.hasOwnProperty('business') || (photos['business']['count'] == 0 && photos['business']['pdf_count'] == 0)" ion-button icon-end (click)="selectSource('business')">
+                    첨부하기
+                </button>  
+              </ion-col> 
+          </div>
+          <div class="login-input-group attach" [class.no_file]="!photos.hasOwnProperty('verify') || (photos['verify']['count'] == 0 && photos['verify']['pdf_count'] == 0)" *ngIf="businessYn">
+              <ion-col style="display: flex; align-items: center; border-bottom: 2px solid #f6f6f6;">
+                <span class="text_label" [class.no_file]="!photos.hasOwnProperty('verify') || (photos['verify']['count'] == 0 && photos['verify']['pdf_count'] == 0)">재직증명서</span>
+                <div class="attach_img" *ngIf="photos.hasOwnProperty('verify') && photos['verify']['count'] > 0" (click)="openPopup('verify')" [style.backgroundImage]="'url(' + returnImage(this.photos['verify']['photo_array'][this.photos['verify']['photo_array'].length - 1]) + ')'">
+                  <span class="attach_img_count">{{ photos.hasOwnProperty('verify') ? photos['verify']['count'] : 0 }}</span>
+                </div>
+                <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="attach_pdf" *ngIf="photos.hasOwnProperty('verify') && photos['verify']['pdf_count'] > 0" [class.no_file]="photos.hasOwnProperty('verify') && photos['verify']['count'] == 0 && photos['verify']['pdf_count'] > 0">
+                  <span class="attach_img_count">{{ photos.hasOwnProperty('verify') ? photos['verify']['pdf_count'] : 0 }}</span>
+                </div>
+                <div class="attach_label" *ngIf="!photos.hasOwnProperty('verify') || (photos['verify']['count'] == 0 && photos['verify']['pdf_count'] == 0)">
+                    파일 없음    
+                </div>
+                <button class="login-button white_button issue_button" [class.no_file]="!photos.hasOwnProperty('verify') || (photos['verify']['count'] == 0 && photos['verify']['pdf_count'] == 0)" ion-button icon-end (click)="selectSource('verify')">
+                    첨부하기
+                </button>  
+              </ion-col> 
+          </div>
+      </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-content class="slide-content" *ngIf="popup">
+    <ion-slides #slides [pager]="curIndex < slide_count" (ionSlideDidChange)="slideChanged()" class="image-slider" slidesPerView="1" (click)="goback()">
+      <ion-slide *ngFor="let img of images">
+        <img [src]="img" class="thumb-img" imageViewer>
+      </ion-slide>
+    </ion-slides>
+</ion-content>

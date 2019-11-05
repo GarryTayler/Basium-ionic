@@ -1,0 +1,134 @@
+page-coupon {
+    .navar_top {
+        left: 21px; position: absolute; width: 100%; z-index: 1001;
+        justify-content: center; width: 100%;
+        padding-top: 10px; padding-bottom: 10px;
+        background: #fff; align-items: center; 
+        left: 15px; top: 0; position: absolute; z-index: 10;
+        .close_icon {
+            position: absolute;
+            padding: 8px 15px 8px 15px;
+            left: 0px;
+        }
+        .title_label {
+            font-weight: 500;
+        }
+    }
+    .page-content {
+        .row_line1 {
+            margin-top: 60px; align-items: center; justify-content: space-between;   
+            .my_email {
+                font-weight: 500;
+                font-size: 16px;               
+            }
+        }   
+        .row_line2 {
+            font-size: 13px;
+        }
+        .tabs {
+            margin-top: 40px;
+            padding-left: 0px; padding-right: 0px;    
+            font-size: 12px;
+            .col {
+                padding: 3px;
+                text-align: center;
+                border-bottom: 2px solid #eee;
+                font-weight: 500;
+            }
+            .col.active {
+                border-bottom: 2px solid #00529a;
+            }
+        }
+        .button_line {
+            display: flex; flex-direction: row;
+        }
+        .id_input {
+            .col .item-md.item-block .item-inner {
+                padding-right: 0px; 
+            }
+            .login-input input {
+                width: 100%; padding: 10px; background: 0 0; border: 0; border: 1px solid #eeeeee;
+                -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0;
+                color: #555; box-shadow: none; font-size: 14px; margin: 5px 0px 5px 0px;
+            }
+            .issue_button {
+                margin-left: 20px;
+                width: 150px;   
+            }
+            ion-label {
+                font-size: 12px; color: #999;           
+            }
+        }
+        .description {
+            font-size: 12px; color: #999; margin-top: 30px; line-height: 20px;
+        }
+        .discount {
+            align-items: center; margin-left: 10px; margin-right: 10px; padding: 10px 0px 10px 0px;    
+            border-bottom: 1px solid #eee; 
+        }
+        .discount:last-child {
+            border-bottom: 0px solid #eee; 
+        }
+        .discount_value {
+            background: #00529a;
+            display: flex; justify-content: center; align-items: center;
+            color: #fff; font-size: 12px; border-radius: 50%; width: 60px; height: 60px;           
+        }
+        .backgroundred {
+            background: #ff6969 !important;
+        }
+        .discount_content {
+            margin-left: 20px; display: flex; flex-direction: column;    
+        }       
+        .dis_coupon {
+            font-weight: 400;       
+        }
+        .dis_date {
+            font-size: 12px; color: #999;       
+        }
+        .fund_line1 {
+            align-items: center; justify-content: space-between;
+        }
+        .fund_status {
+            font-weight: 500; color: #999;
+        }
+        .fund_value {
+            color: #00529a; font-size: 20px; font-weight: 600;
+        }
+        .fund_line2 {
+            border-top: 1px solid #eee; margin: 30px 10px 30px 10px; padding-top: 20px;    
+            ul {
+                font-size: 12px; color: #999; margin-left: -35px;    
+            }
+        }
+        .second {
+            padding-left: 15px; padding-right: 15px;
+        }
+        .use_content , .save_content {
+            margin-top: 15px; margin-bottom: 30px;
+            table {
+                width: 100%;
+            }
+            thead {
+                border-top: 2px solid #000; border-bottom: 2px solid #7f7f7f; line-height: 36px;    
+                font-size: 12px;
+            }
+            tbody {
+                font-size: 10px;
+                tr {
+                    line-height: 20px; border-bottom: 1px solid #eee;    
+                }
+                tr:last-child {
+                    border-bottom: 0px solid #eee;    
+                }
+                td {
+                    padding-top: 6px; padding-bottom: 6px;
+                }
+            }
+        }
+        .scroll-content {
+            padding-left: 12px;
+            padding-right: 12px;    
+        }
+    }
+}

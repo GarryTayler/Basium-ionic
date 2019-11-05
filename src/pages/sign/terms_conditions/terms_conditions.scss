@@ -1,0 +1,49 @@
+page-temrs_conditions {
+    .row-align {
+        display: flex;
+        align-items: center;       
+        div {
+            width: calc( 100% - 36px );       
+        }
+    }
+    .require_service {
+        width: 36px;
+    }
+    .require_label {
+        font-size: 12px;
+        color: #16aaff; 
+    }
+    .unrequire_label {
+        font-size: 12px;
+        color: #999; 
+    }
+    .underline {
+        text-decoration: underline;
+    }
+    .service_detail {
+        font-size: 12px; 
+        border: 1px solid rgb(238, 238, 238); padding: 16px 10px 16px 10px;
+        display: flex; flex-direction: column; margin-top: 15px;    
+        span:nth-child(1) {
+            font-size: 12px; font-weight: 500;
+        }
+        span:nth-child(2) {
+            font-size: 12px; margin-top: 20px;
+        }
+    }
+    .detail_content1 {
+        height: 58px; overflow-y: scroll;
+    }
+    .terms_service_2 , .terms_service_3 , .terms_service_4 {
+        flex-direction: column;
+    }
+    .terms_service_6 .col{
+        padding-left: 3px; padding-right: 3px;
+    }
+    .login-footer .col label {
+        font-size: 12px; color: #999;
+    }
+    strong {
+        font-weight: 500 !important;
+    }
+}

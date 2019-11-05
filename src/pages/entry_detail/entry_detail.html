@@ -1,0 +1,214 @@
+<ion-header>
+    <sub-header1 *ngIf="is_payment_access" title="통관내역 상세보기" payment="payment"></sub-header1>
+    <sub-header1 *ngIf="!is_payment_access" title="통관내역 상세보기" payment="non_payment"></sub-header1>
+</ion-header>
+
+<ion-content class="page-content">
+    <ion-grid class="section">
+        <ion-row class="progress_container">
+            <div class="prog_layout" *ngIf="img_url != ''">
+                  <span class="cur_prog">{{ result.step1 }}</span>
+                  <span class="total_prog">4</span>
+                  <div class="span_container">
+                      <span class="cur_date">{{ result.last_update_dt }}</span>   
+                  </div>
+                  <div class="fee_container" *ngIf="result.hasOwnProperty('step1')">
+                      <span class="fee_text">{{ result.step1_nm }}</span>   
+                  </div>
+                  <img [src]="img_url" class="progress_img" /> 
+            </div>
+        </ion-row>    
+        <ion-row class="panel_div">
+          <div class="panel_title">
+              접수자 정보
+          </div>
+          <div class="panel_body accepter" *ngIf="result.hasOwnProperty('addr1')">
+              <div class="panel_detail align_column">
+                <span class="notice">{{ result.bl }}</span>
+                <span class="reg_date">{{ result.name }} / {{ result.mobile }}</span>
+                <span class="reg_date">{{ result.addr1 + ' ' + result.addr2 }}</span>
+              </div>
+          </div>
+        </ion-row>
+  
+        <ion-row class="panel_div" *ngIf="(result.step1 == '2' || result.step1 == '3' || result.step1 == '4')">
+          <div class="panel_title">
+              담당자 정보
+          </div>
+          <div class="panel_body">
+              <div class="panel_detail contact">
+                  <div class="align_column">
+                          <span class="notice">{{ result.customs_reg_nm == '' ? '김지영 님' : (result.customs_reg_nm + ' 님') }}</span>
+                          <span class="reg_date">베스트 관세사무소</span>
+                  </div>
+                  <div (click)="calling(result.customs_reg_tel)">
+                          <img [src]="'./assets/icon/call.png'" class="line_img" /> 
+                  </div>
+              </div>
+          </div>
+        </ion-row>
+  
+        <ion-row class="panel_div" style="margin-bottom: 20px;">
+          <div class="panel_title">
+              등록된 물품
+          </div>
+          <div class="panel_body item_list">
+              <div class="panel_detail align_column" *ngFor="let result_item of result.items" (click)="goItemDetail(result_item.item_no)">
+                  <span class="notice">{{ result_item.item_nm }}</span>
+                  <span class="reg_date">{{ result_item.qty + ' ' + result_item.qty_unit }} / {{ result_item.unit_price + result_item.current_unit }} / {{ result_item.weight + result_item.weight_unit }}</span>
+                  <span class="reg_date">자가사용여부:{{ (result_item.self_use_gb == null || result_item.self_use_gb == 'N')?'N':'Y' }} / 인보이스:{{ result_item.invoice_yn }} / FTA대상여부:{{ result_item.fta_gb == "1" ? 'N' : 'Y' }}</span>
+              </div>
+          </div>
+        </ion-row>
+        <ion-row class="panel_div  item_list" *ngFor="let result_item of result.history">
+              <div class="panel_body running_panel">
+                  <div class="panel_detail" style="align-items:center;">
+                      <div>
+                          <img [src]="'./assets/icon/line_1.png'" class="line_img" /> 
+                          <span class="current_val">{{ result_item.his_step1 }}</span>
+                          <span class="total_val">4</span>
+                      </div>
+                      <div class="align_column">
+                          <span class="notice">{{ result_item.progress }}</span>
+                          <span class="reg_date">{{ result_item.his_dt }}</span>
+                      </div>
+                      <div class="space">
+                      </div>
+                  </div>
+              </div>        
+      </ion-row>
+
+      <!-- newly added coupon & mileage-->
+      <ion-row class="panel_div" >
+        <div class="panel_title">
+            쿠폰 및 적립금 사용
+        </div>
+        <div class="panel_body">
+            <div class="panel_detail coupon1" (click)="coupon_popup()" >
+                <div class="coupon_name">{{ active_coupon_no }}</div>
+                <div> 
+                    <ion-icon name="ios-arrow-down"></ion-icon>
+                </div>
+            </div>
+            <div class="panel_detail coupon2">
+                <div class="mileage_label">
+                    <span class="mileage_txt">적립금</span>
+                    <div>
+                        <input type="mileage_value" class="mileage_input" [(ngModel)]="mileage_value" />
+                        <span>보유 적립금: <label>{{ getNumberFormat(user['user_mileage']) }}</label>&nbsp;P</span>
+                    </div>
+                </div>
+                <div> 
+                    <button class="login-button white_button apply_button" ion-button icon-end (click)="apply()">
+                        적용
+                    </button>  
+                </div>
+            </div>
+        </div>
+      </ion-row>
+
+      <div *ngIf="result.step1 == '4' || result.step1 == '3' || result.step1 == '2' || result.step1 == '1'">
+              <ion-row class="fee_label1">
+                      총 납부세액 (납부완료)
+              </ion-row>
+              <ion-row class="fee_label2 margin_bottom_thick">
+                      <span class="fee_unit">₩</span>
+                      <span class="fee_value" *ngIf="result.step1 == '3' || result.step1 == '4'">{{ getNumberFormat(result.nabbu_tax) }}</span>
+                      <span class="fee_value" *ngIf="result.step1 == '1' || result.step1 == '2'">미정</span>
+              </ion-row>
+              <ion-row class="fee_line" [class.margin-top76]="result.step1 == '3'">
+                      <span>통관수수료(납부완료)</span>
+                      <span>₩ {{ getNumberFormat(result.fee) }}</span>
+              </ion-row>
+      </div>
+      <div *ngIf="result.step1 == '5'">
+              <ion-row class="fee_label1">
+                      총 납부세액
+              </ion-row>
+              <ion-row class="fee_label2">
+                      <span class="fee_unit">₩</span>
+                      <span class="fee_value" *ngIf="result.step1 == '3'">{{ getNumberFormat(result.nabbu_tax) }}</span>
+                      <span class="fee_value" *ngIf="result.step1 == '1'">미정</span>
+              </ion-row>
+      </div>
+      <div *ngIf="result.step1 == '0'">
+                  <ion-row class="fee_label1">
+                      총 통관수수료
+                  </ion-row>
+
+                  <ion-row class="plus_label" *ngIf="active_coupon_amount != 0">
+                    <span class="plus_unit">쿠폰사용</span>
+                    <span class="plus_value">- ₩ {{ getNumberFormat(active_coupon_amount) }}</span>
+                  </ion-row>
+                  <ion-row class="plus_label" *ngIf="active_mileage != 0">
+                    <span class="plus_unit">적립금사용</span>
+                    <span class="plus_value">- ₩ {{ getNumberFormat(active_mileage) }}</span>
+                  </ion-row>
+                  <ion-row class="plus_label">
+                    <span class="plus_unit">통관수수료</span>
+                    <span class="final_value">₩ {{ getNumberFormat(result.fee) }}</span>
+                  </ion-row>
+
+                  <ion-row class="fee_label2 margin_bottom_thick">
+                          <span class="fee_unit">₩</span>
+                          <span class="fee_value">{{ getNumberFormat(result.fee - active_coupon_amount - active_mileage) }}</span>
+                  </ion-row>
+                  <ion-row class="fee_label3">
+                      아래 세액은 예상 세액으로 실제 세액과 다를수 있습니다.
+                  </ion-row>
+                  <ion-row class="fee_line">
+                          <span>관세</span>
+                          <span>₩ {{ getNumberFormat(result.tax) }}</span>
+                  </ion-row>
+                  <ion-row class="fee_line">
+                          <span>개별 소비세</span>
+                          <span>₩ {{ getNumberFormat(result.teuk_tax) }}</span>
+                  </ion-row>
+                  <ion-row class="fee_line">
+                          <span>교육세</span>
+                          <span>₩ {{ getNumberFormat(result.edu_tax) }}</span>
+                  </ion-row>
+                  <ion-row class="fee_line">
+                          <span>농어촌특별세</span>
+                          <span>₩ {{ getNumberFormat(result.nong_tax) }}</span>
+                  </ion-row>
+                  <ion-row class="fee_line">
+                          <span>부가세</span>
+                          <span>₩ {{ getNumberFormat(result.vat_tax) }}</span>
+                  </ion-row>
+                  <ion-row class="fee_line">
+                          <span>주세</span>
+                          <span>₩ {{ getNumberFormat(result.alcohol_rate_tax) }}</span>
+                  </ion-row>
+                  <ion-row class="fee_line">
+                          <span>지방세</span>
+                          <span>₩ {{ getNumberFormat(result.local_tax) }}</span>
+                  </ion-row>
+                  <ion-row class="fee_line">
+                          <span>지방교육세</span>
+                          <span>₩ {{ getNumberFormat(result.local_edu_tax) }}</span>
+                  </ion-row>
+                  <ion-row class="fee_line margin-top76">
+                          <span>총 세액합계</span>
+                          <span>₩ {{ getNumberFormat(result.total_tax) }}</span>
+                  </ion-row>            
+      </div>
+    </ion-grid>
+  </ion-content>
+  <ion-row class="class-footer" *ngIf="result.step1 == '0' || result.step1 == '3'">
+          <div class="footer_item_cancel" (click)="goback()">
+              취소
+          </div>
+          <div class="space"></div>
+          <div class="footer_item_pay" (click)="payment()" *ngIf="result.step1 == '0'">
+              수수료 결제하기
+          </div>
+          <div class="footer_item_pay" (click)="payTax()" *ngIf="result.step1 == '3'">
+              세금 납부하기
+          </div>
+  </ion-row>
+  <ion-row class="class-footer1" *ngIf="result.step1 == '1'">
+        <div class="footer_item_pay">
+            담당자가 배정중입니다.
+        </div>
+</ion-row>

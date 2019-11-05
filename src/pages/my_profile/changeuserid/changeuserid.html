@@ -1,0 +1,25 @@
+<ion-row class="navar_top">
+    <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+    <div class="title_label">아이디 변경</div>
+</ion-row>
+<ion-content padding class="login-content">
+<ion-grid>
+  <ion-row style="font-weight: 600; margin-bottom: 5px;">
+    아이디
+  </ion-row>
+  <ion-row class="input_row">
+      <input class="login-input" placeholder="이메일 주소를 입력하세요." [(ngModel)]="userid" />
+      <button class="login-button blue_button receive_button" ion-button icon-end (click)="sendVerifyRequest()">
+          인증메일 받기
+      </button>
+  </ion-row>
+  <ion-row class="comment_row">
+    위 메일로 발송된 링크를 클릭후 확인 버튼을 누르세요.
+  </ion-row>
+  <ion-row class="id_input margin-top">
+      <button class="login-button blue_button" full ion-button icon-end (click)="confirm()">
+          확인
+      </button>
+  </ion-row> 
+</ion-grid>
+</ion-content>

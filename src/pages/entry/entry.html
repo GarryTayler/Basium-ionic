@@ -1,0 +1,130 @@
+<ion-header>
+    <main-header></main-header>
+</ion-header>
+<ion-content class="page-content">
+  <ion-grid class="section">
+      <ion-row class="title_bar">
+        <ion-col>
+            통관내역
+        </ion-col>
+        <ion-col (click)="do_filter()">
+            <img [src]="'./assets/icon/filter_new.png'" class="filter_img"  /> 
+        </ion-col>
+      </ion-row>
+      <ion-row class="panel_div" *ngFor="let result_item of result_list" [class.complete]="result_item.step1 == '4'" (click)="goDetail( result_item.reg_number )">
+        <div class="panel_body running_panel">
+            <div class="panel_detail" style="align-items:center;">
+                <div>
+                    <img [src]="'./assets/icon/line_2.png'" class="line_img" /> 
+                    <span class="current_val">{{ result_item.step1 }}</span>
+                    <span class="total_val">4</span>
+                </div>
+                <div class="align_column">
+                    <span class="notice">{{ result_item.item_nm }}</span>
+                    <span class="reg_date">{{ result_item.last_update_dt }}</span>
+                </div>
+                <div class="space">
+                </div>
+                <div>
+                    <button class="login-button apply_button" [class.grey_button]="result_item.step1 == '4'" [class.white_button]="result_item.step1 == '1' || result_item.step1 == '2'" [class.blue_button]="result_item.step1 == '0' || result_item.step1 == '3'" ion-button icon-end (click)="do_action()">
+                        {{ result_item.step1_nm }}
+                    </button>  
+                </div>
+            </div>
+        </div>
+      </ion-row>
+      <!--
+      <ion-row class="panel_div">
+          <div class="panel_body running_panel">
+              <div class="panel_detail" style="align-items:center;">
+                  <div>
+                      <img [src]="'./assets/icon/line_2.png'" class="line_img" /> 
+                      <span class="current_val">3</span>
+                      <span class="total_val">4</span>
+                  </div>
+                  <div class="align_column">
+                      <span class="notice">구찌 신상가방 외 1건</span>
+                      <span class="reg_date">2019.02.11 11:33:29</span>
+                  </div>
+                  <div class="space">
+                  </div>
+                  <div>
+                      <button class="login-button blue_button apply_button" ion-button icon-end (click)="verification()">
+                          세금납부
+                      </button>  
+                  </div>
+              </div>
+            </div>
+        </ion-row>
+        <ion-row class="panel_div">
+            <div class="panel_body running_panel">
+                <div class="panel_detail" style="align-items:center;">
+                    <div>
+                        <img [src]="'./assets/icon/line_2.png'" class="line_img" /> 
+                        <span class="current_val">2</span>
+                        <span class="total_val">4</span>
+                    </div>
+                    <div class="align_column">
+                        <span class="notice">마르지엘라 향수 신상</span>
+                        <span class="reg_date">2019.02.11 10:25:20</span>
+                    </div>
+                    <div class="space">
+                    </div>
+                    <div>
+                        <button class="login-button white_button apply_button" ion-button icon-end (click)="verification()">
+                            접수완료
+                        </button>  
+                    </div>
+                </div>
+            </div>
+        </ion-row>    
+        <ion-row class="panel_div">
+            <div class="panel_body running_panel">
+                <div class="panel_detail" style="align-items:center;">
+                    <div>
+                        <img [src]="'./assets/icon/line_2.png'" class="line_img" /> 
+                        <span class="current_val">1</span>
+                        <span class="total_val">4</span>
+                    </div>
+                    <div class="align_column">
+                        <span class="notice">골든구스 한정판 운동화</span>
+                        <span class="reg_date">2019.01.21 08:21:11</span>
+                    </div>
+                    <div class="space">
+                    </div>
+                    <div>
+                        <button class="login-button white_button apply_button" ion-button icon-end (click)="verification()">
+                            수수료완납
+                        </button>  
+                    </div>
+                </div>        
+            </div>
+        </ion-row>
+        <ion-row class="panel_div">
+            <div class="panel_body running_panel">
+                <div class="panel_detail" style="align-items:center;">
+                        <div>
+                            <img [src]="'./assets/icon/line_2.png'" class="line_img" /> 
+                            <span class="current_val">0</span>
+                            <span class="total_val">4</span>
+                        </div>
+                        <div class="align_column">
+                            <span class="notice">애플 맥북프로 15인치</span>
+                            <span class="reg_date">2019.02.12 12:15:23</span>
+                        </div>
+                        <div class="space">
+                        </div>
+                        <div>
+                            <button class="login-button blue_button apply_button" ion-button icon-end (click)="verification()">
+                                수수료결제
+                            </button>  
+                        </div>
+                </div>
+            </div>
+        </ion-row>
+        -->
+  </ion-grid>
+</ion-content>
+<ion-footer class="hide-on-keyboard-open">
+  <main-footer tab="history"></main-footer>
+</ion-footer>

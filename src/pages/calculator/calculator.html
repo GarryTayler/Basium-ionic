@@ -1,0 +1,183 @@
+<ion-row class="navar_top">
+    <img [src]="'./assets/icon/close_button.png'" class="close_icon" (click)="close()" /> 
+    <div class="title_label">관세계산기</div>
+</ion-row>
+<ion-content padding class="login-content" [class.grey_background]="popup">
+    <ion-grid>
+      <ion-row class="select_category" *ngIf="popup">
+        
+        <div class="category_line" *ngFor="let result_item of selected_category; let i = index">
+          <span [class.active]="i==(depth-1)">{{ i + 1 }}. {{ result_item.category_name }}</span>
+          <ion-icon name="ios-arrow-down"></ion-icon>
+        </div> 
+  
+        <div class="category_list" [class.depth1]="depth == 1" [class.depth2]="depth == 2" [class.depth3]="depth == 3" [class.depth4]="depth == 4">
+          <div class="category_item" *ngFor="let result_item of category_list" (click)="selectCategory(result_item.cc , result_item.cn , result_item.a_msg)">
+            {{ result_item.cn }}
+          </div>  
+        </div>
+      </ion-row>
+      <ion-row class="ems_content" *ngIf="!popup">
+        <div class="header_title" *ngIf="selected_category.length == 0" (click)="openCategory()">
+          <span>물품분류를 선택하세요</span>
+          <ion-icon name="ios-arrow-down"></ion-icon>
+        </div>
+        <div class="header_title" *ngFor="let result_item of selected_category">
+          <span>{{ result_item.category_name }}</span>
+          <ion-icon name="ios-arrow-down"></ion-icon>
+        </div>
+        <div class="login-input-group" style="padding-top: 0px;">
+          <ion-col>
+            <div class="input_icon">
+                <span class="field">수출국가</span>
+            </div>
+            <ion-item no-lines no-padding no-margin>
+              <ion-input class="login-input" type="country_nm" placeholder="선택 안함" [(ngModel)]="country_nm" readonly></ion-input>
+            </ion-item>
+            <button class="login-button white_button issue_button" ion-button icon-end (click)="selectCountry()">
+                선택하기
+            </button>  
+          </ion-col> 
+        </div>
+        <div class="login-input-group" style="padding-top: 0px;">
+          <ion-col>
+            <div class="input_icon">
+                <span class="field">FTA대상여부</span>
+            </div>
+            <ion-item no-lines no-padding no-margin>
+              <ion-input class="login-input" type="object" placeholder="해당 없음" [(ngModel)]="object" readonly></ion-input>
+            </ion-item>
+            <button class="login-button white_button issue_button" ion-button icon-end (click)="selectFTA()">
+                선택하기
+            </button>  
+          </ion-col> 
+        </div>
+        <div class="login-input-group">
+          <ion-col>
+            <div class="input_icon" (click)="selectQtyUnit()">
+                <img [src]="'./assets/icon/pc.png'" class="pc_icon" /> 
+                <span class="text_label1">{{ qty_unit }}</span>
+                <img [src]="'./assets/icon/collapse2.png'" class="collapse_icon" /> 
+            </div> 
+            <ion-item no-lines no-padding no-margin>
+              <ion-input class="login-input" type="qty" placeholder="수량을 입력하세요." [(ngModel)]="qty"></ion-input>
+            </ion-item>
+          </ion-col> 
+        </div>
+        <div class="login-input-group">
+          <ion-col>
+            <div class="input_icon" (click)="selectCurrency()">
+                <img [src]="'./assets/icon/usd_icon.png'" class="pc_icon" /> 
+                <span class="text_label1">{{ currency }}</span>
+                <img [src]="'./assets/icon/collapse2.png'" class="collapse_icon" /> 
+            </div> 
+            <ion-item no-lines no-padding no-margin>
+              <ion-input class="login-input" type="unit_price" placeholder="단가를 입력하세요" [(ngModel)]="unit_price"></ion-input>
+            </ion-item>
+          </ion-col> 
+        </div>
+        <div class="login-input-group">
+          <ion-col>
+            <div class="input_icon" (click)="selectUnit()">
+                <img [src]="'./assets/icon/weight_icon.png'" class="pc_icon" /> 
+                <span class="text_label1">{{ unit }}</span>
+                <img [src]="'./assets/icon/collapse2.png'" class="collapse_icon" /> 
+            </div>
+            <ion-item no-lines no-padding no-margin>
+              <ion-input class="login-input" type="weight" placeholder="무게를 입력하세요" (ionBlur)="weightChange()" [(ngModel)]="weight"></ion-input>
+            </ion-item>
+          </ion-col> 
+        </div>
+        <div class="login-input-group">
+            <ion-col>
+              <div class="input_icon">
+                  <img [src]="'./assets/icon/exchange_rate.png'" class="pc_icon" /> 
+                  <span class="text_label">고시환율</span>
+              </div>
+              <ion-item no-lines no-padding no-margin>
+                <ion-input class="login-input" type="exchange_rate" placeholder="1,134.00" [(ngModel)]="exchange_rate" readonly></ion-input>
+              </ion-item>
+            </ion-col> 
+        </div>
+        <div class="login-input-group">
+            <ion-col>
+              <div class="input_icon">
+                  <img [src]="'./assets/icon/fee_icon.png'" class="pc_icon" /> 
+                  <span class="text_label">선편요금</span>
+              </div>
+              <ion-item no-lines no-padding no-margin>
+                <ion-input class="login-input" type="fee" placeholder="₩ 100,000" [(ngModel)]="fee" readonly></ion-input>
+              </ion-item>
+            </ion-col> 
+        </div>
+        <div class="id_input">
+          <div class="left-part">
+            <button class="login-button" full ion-button icon-end (click)="reset()">
+              초기화
+            </button>
+          </div>    
+          <div class="right-part">
+            <button class="login-button" full ion-button icon-end (click)="calculate()">
+              계산하기
+            </button>
+          </div>
+        </div>
+  
+        <div *ngIf="is_calc">
+            <ion-row class="fee_label3">
+                아래 세액은 예상 세액으로 실제 세액과 다를수 있습니다.
+            </ion-row>
+            <ion-row class="fee_line">
+                    <span>관세</span>
+                    <span>₩ {{ calc_result.tax }}</span>
+            </ion-row>
+            <ion-row class="fee_line">
+                    <span>개별 소비세</span>
+                    <span>₩ {{ calc_result.teuk_tax }}</span>
+            </ion-row>
+            <ion-row class="fee_line">
+                    <span>교육세</span>
+                    <span>₩ {{ calc_result.edu_tax }}</span>
+            </ion-row>
+            <ion-row class="fee_line">
+                    <span>농어촌특별세</span>
+                    <span>₩ {{ calc_result.nong_tax }}</span>
+            </ion-row>
+            <ion-row class="fee_line">
+                    <span>부가세</span>
+                    <span>₩ {{ calc_result.vat_tax }}</span>
+            </ion-row>
+            <ion-row class="fee_line">
+                    <span>주세</span>
+                    <span>₩ {{ calc_result.alcohol_rate_tax }}</span>
+            </ion-row>
+            <ion-row class="fee_line">
+                    <span>지방세</span>
+                    <span>₩ {{ calc_result.local_tax }}</span>
+            </ion-row>
+            <ion-row class="fee_line">
+                    <span>지방교육세</span>
+                    <span>₩ {{ calc_result.local_edu_tax }}</span>
+            </ion-row>  
+            <ion-row class="fee_line">
+                    <span>협정세울 적용</span>
+                    <span class="red_text">-₩ {{ calc_result.benefits }}</span>
+            </ion-row>  
+            <ion-row class="fee_label3">
+                협정세율 적용으로 {{ calc_result.benefits }}원 절세 가능!
+            </ion-row>
+            <ion-row class="fee_line margin-top76">
+                    <span>총 세액합계</span>
+                    <span>₩ {{ calc_result.total_tax }}</span>
+            </ion-row>            
+            <ion-row class="accept_logic">
+                <ion-col>
+                    <button class="login-button blue_button" full ion-button icon-end (click)="gotoPriceRegister()">
+                        계산결과로 간편접수
+                    </button>
+                </ion-col>
+            </ion-row>
+        </div>
+      </ion-row>
+    </ion-grid>
+  </ion-content>

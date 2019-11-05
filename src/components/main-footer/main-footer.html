@@ -1,0 +1,27 @@
+<ion-row class="food-footer">
+    <ion-col class="footer-item etc_item" [class.selected]="tab == 'home'" (click)="gotoHome()">
+      <img [src]="'./assets/icon/home' + (tab == 'home' ? '_active' : '') + '.png'" class="submenu" />
+      <p>홈</p>
+    </ion-col>
+    <ion-col class="footer-item etc_item" [class.selected]="tab == 'history'" (click)="gotoHistory()">
+      <img [src]="'./assets/icon/history' + (tab == 'history' ? '_active' : '') + '.png'" class="submenu" />
+      <p>
+        통관내역
+      </p>
+    </ion-col>
+    <ion-col class="footer-item main_item" [class.selected]="tab == 'main'" (click)="gotoMain()">
+        <img [src]="'./assets/icon/main' + (tab == 'main' ? '_active' : '') + '.png'" class="mainmenu" />
+        <p>
+          간편접수
+        </p>
+    </ion-col>
+    <ion-col class="footer-item etc_item" [class.selected]="tab == 'view'" (click)="gotoView()">
+      <img [src]="'./assets/icon/view' + (tab == 'view' ? '_active' : '') + '.png'" class="submenu" />
+      <p>화물조회</p>
+    </ion-col>
+    <ion-col class="footer-item etc_item" [class.selected]="tab == 'profile'" (click)="gotoProfile()">
+      <img [src]="'./assets/icon/profile' + (tab == 'profile' ? '_active' : '') + '.png'" class="submenu" />
+      <p>내정보</p>
+    </ion-col>
+  </ion-row>
+  

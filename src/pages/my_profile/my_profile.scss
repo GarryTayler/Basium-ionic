@@ -1,0 +1,73 @@
+page-my_profile {
+    .page-content {
+        .profile_title {
+            margin-top: 50px; font-size: 25px; font-weight: 600;           
+        }
+        .row_line1 {
+            margin-top: 30px; align-items: center; justify-content: space-between;   
+            position: relative;
+            .my_email {
+                font-weight: 500;
+                font-size: 16px;               
+            }
+            .setting {
+                font-size: 12px; position: absolute;
+                right: 8px; padding: 10px;
+            }
+        }   
+        .row_line2 {
+            font-size: 13px;
+        }
+        .row_line3 {
+            margin-top: 15px;       
+            .col {
+                border-top: 2px solid #f6f6f6; border-bottom: 2px solid #f6f6f6;
+                padding: 10px 0px 10px 10px; display: flex; flex-direction: column;    
+            }
+            .col:nth-child(2) {
+                border-left: 2px solid #f6f6f6;
+            }
+
+        }
+        .grey_label {
+            color: #bdbdbd; font-size: 12px;           
+        }
+        span#useful_coupon {
+            font-size: 18px; font-weight: 600;   
+        }
+        span#pay_amount {
+            font-size: 18px; font-weight: 600; color: #00529a;   
+        }
+        .row_line4 , .row_line8 {
+            font-size: 20px; font-weight: 500; margin-top: 30px;    
+        }
+        .row_line5 , .row_line9 {
+            margin-top: 30px; 
+        }
+        .row_line6 , .row_line7 , .row_line10 , .row_line11 , .row_line12 , .row_line13 {
+            margin-top: 15px; 
+        }
+        .row_line5 , .row_line6 , .row_line9 , .row_line10 , .row_line11 , .row_line12 {
+            border-bottom: 1px solid #eee;
+        }
+        .row_line5 , .row_line6 , .row_line7 , .row_line9 , .row_line10 , .row_line11 , .row_line12 , .row_line13 {
+            align-items: center; margin-left: 10px; margin-right: 10px;
+            padding-left: 5px; padding-right: 5px; padding-bottom: 15px;
+            span {
+                margin-left: 20px; font-weight: 500;    
+            }
+            i {
+                font-size: 16px;   
+            }
+        }
+        .field {
+            margin-left: 0px !important;
+        }
+        .margin-bottom {
+            margin-bottom: 30px;
+        }
+        .scroll-content {
+            padding-left: 12px; padding-right: 12px;    
+        }
+    }
+}

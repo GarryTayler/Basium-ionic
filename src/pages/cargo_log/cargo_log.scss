@@ -1,0 +1,97 @@
+page-cargo_log {
+    .navar_top {
+        left: 21px; position: absolute; width: 100%; z-index: 1001;
+        justify-content: center; width: 100%;
+        padding-top: 10px; padding-bottom: 10px;
+        background: #fff; align-items: center; 
+        left: 15px; top: 0; position: absolute; z-index: 10;
+        .close_icon {
+            position: absolute;
+            padding: 8px 15px 8px 15px;
+            left: 0px;
+        }
+        .title_label {
+            font-weight: 500;
+        }
+    }
+    .page-content {
+        //panel title & body css
+        .panel_div {
+            margin-top: 10px; border: 1px solid #f5f5f5; margin-left: 5px;
+            margin-right: 5px; flex-direction: column; padding-left: 0px; padding-right: 0px;    
+        }
+        .panel_title {
+            background: #f2f2f2; padding: 5px 10px 5px 10px; font-weight: 600;           
+        }
+        .panel_detail {
+            border-bottom: 1px solid #f5f5f5; display: flex; padding: 8px 15px 8px 15px;   
+        }
+        .align_column {
+            flex-direction: column; display: flex;
+        }
+        .align_row {
+            flex-direction: row; display: flex;
+        }
+        .reg_date {
+            color: #bbbbbb; font-size: 11px; line-height: 30px;
+        }
+        .registered_notice {
+            align-items: center; justify-content: space-between;
+        }
+        .running_panel {
+            .panel_detail {
+                align-items: center;
+                div:nth-child(1) {
+                    position: relative;
+                }
+                div:nth-child(2) {
+                    margin-left: 10px;
+                }
+                .total_val {
+                    position: absolute; bottom: 0px;
+                    right: 2px; font-weight: 900;    
+                }
+                .current_val {
+                    position: absolute; top: 0px;
+                    font-weight: 900;
+                }
+            }
+        }
+        ion-row:last-child  {
+            margin-bottom: 20px;
+        }
+        .notice {
+            font-weight: 500;
+        }
+        .tabs {
+            font-size: 12px; margin-top: 50px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px;    
+            .col {
+                padding: 3px; text-align: center; border-bottom: 2px solid #eee; font-weight: 500;
+            }
+            .col.active {
+                border-bottom: 2px solid #00529a;
+            }
+        }
+        .nomer {
+            font-weight: 500; font-size: 16px; margin-right: 20px;           
+        }
+        .panel_div.active {
+            border: 1px solid #7fa8cc;    
+            .nomer {
+                color: #7fa8cc;    
+            }
+            .notice {
+                color: #7fa8cc;    
+            }
+        }
+        .panel_detail.ems {
+            flex-direction: column;
+            .align_column {
+                margin-top: 15px;
+            }       
+            .align_column:nth-child(1) {
+                margin-top: 0px;
+            }       
+        }
+    }
+}

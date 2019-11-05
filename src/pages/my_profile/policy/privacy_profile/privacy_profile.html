@@ -1,0 +1,13 @@
+<ion-header>
+  <sub-header title="개인정보 취급방침"></sub-header>
+</ion-header>
+<ion-content class="page-content">
+  <ion-grid class="section">
+      <ion-row class="title_bar">
+            {{ result_str.title }}
+      </ion-row>
+      <ion-row class="paragraph1">
+            <p style="white-space: pre-line" [innerHTML]="result_str.contents"></p>
+      </ion-row>
+  </ion-grid>
+</ion-content>

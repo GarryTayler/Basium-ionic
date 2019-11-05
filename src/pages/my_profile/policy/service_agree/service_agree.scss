@@ -1,0 +1,19 @@
+page-service_agree {
+    .page-content {
+        .title_bar {
+            font-size: 16px; font-weight: 600; margin-top: 60px; margin-bottom: 20px;
+        }
+        .paragraph1 {
+            margin-bottom: 20px;  
+        }   
+        .paragraph2 , .paragraph3 {
+            margin-top: 20px;
+        }
+        ion-row:last-child {
+            margin-bottom: 30px;
+        }
+        .scroll-content {
+            padding-left: 12px; padding-right: 12px;    
+        }
+    }
+}

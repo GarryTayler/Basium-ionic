@@ -1,0 +1,207 @@
+<ion-content class="page-content" [class.blur]="popup">
+    <ion-grid class="section">
+        <ion-row class="navar_top">
+          <img [src]="'./assets/icon/close_button.png'" class="close_icon" (click)="close()" /> 
+          <div class="title_label">등록된 물품</div>
+        </ion-row>
+        <ion-row class="item_detail_row" style="margin-top: 15px;">
+          <div class="left_string">품명</div>
+          <div class="right_string">
+            {{ item_product.item_nm }}
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">운송장</div>
+          <div class="right_string">
+              {{ item_product.bl }}
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">수출자</div>
+          <div class="right_string">
+              {{ item_product.exporter_nm }}
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">수출국가</div>
+          <div class="right_string">
+              {{ mark_country[item_product.exporter_cc] }}
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">우편물운송장(EMS)</div>
+          <div class="attach_items" *ngIf="item_product.tabSelect == 'ems'">
+            <div class="image" *ngIf="item_product.bl_list.length > 0" (click)="openImage('bl')" [style.backgroundImage]="'url(' + item_product['bl_list'][item_product['bl_list'].length - 1] + ')'">
+              <span class="image_badge">{{ item_product.bl_list.length }}</span>
+            </div>
+            <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product.bl_pdf_list.length > 0 && !instant" (click)="downloadPdf('bl')">
+                <span class="image_badge">{{ item_product.bl_pdf_list.length }}</span>
+            </div>
+            <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product.bl_pdf_list.length > 0 && instant">
+                <span class="image_badge">{{ item_product.bl_pdf_list.length }}</span>
+            </div>
+          </div>
+          <div class="nofile_string" *ngIf="item_product.tabSelect != 'ems' || (item_product.bl_list.length == 0 && item_product.bl_pdf_list.length == 0)">
+             파일 없음
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">특송(B/L)</div>
+          <div class="attach_items" *ngIf="item_product.tabSelect == 'bl'">
+              <div class="image" *ngIf="item_product.bl_list.length > 0" (click)="openImage('bl')" [style.backgroundImage]="'url(' + item_product['bl_list'][item_product['bl_list'].length - 1] + ')'">
+                <span class="image_badge">{{ item_product.bl_list.length }}</span>
+              </div>
+              <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product.bl_pdf_list.length > 0 && !instant" (click)="downloadPdf('bl')">
+                  <span class="image_badge">{{ item_product.bl_pdf_list.length }}</span>
+              </div>
+              <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product.bl_pdf_list.length > 0 && instant">
+                  <span class="image_badge">{{ item_product.bl_pdf_list.length }}</span>
+              </div>
+          </div>
+          <div class="nofile_string" *ngIf="item_product.tabSelect != 'bl' || (item_product.bl_list.length == 0 && item_product.bl_pdf_list.length == 0)">
+              파일 없음
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">휴대폼(유치증)</div>
+          <div class="attach_items" *ngIf="item_product.tabSelect == 'hand'">
+              <div class="image" *ngIf="item_product.bl_list.length > 0" (click)="openImage('bl')" [style.backgroundImage]="'url(' + item_product['bl_list'][item_product['bl_list'].length - 1] + ')'">
+                <span class="image_badge">{{ item_product.bl_list.length }}</span>
+              </div>
+              <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product.bl_pdf_list.length > 0 && !instant" (click)="downloadPdf('bl')">
+                  <span class="image_badge">{{ item_product.bl_pdf_list.length }}</span>
+              </div>
+              <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product.bl_pdf_list.length > 0 && instant">
+                  <span class="image_badge">{{ item_product.bl_pdf_list.length }}</span>
+              </div>
+          </div>
+          <div class="nofile_string" *ngIf="item_product.tabSelect != 'hand' || (item_product.bl_list.length == 0 && item_product.bl_pdf_list.length == 0)">
+              파일 없음
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">사업자여부</div>
+          <div class="right_string">
+              {{ item_product.businessYN }}
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">사업자등록증</div>
+          <div class="attach_items">
+            <div class="image" *ngIf="item_product.br_list.length > 0" (click)="openImage('br')" [style.backgroundImage]="'url(' + item_product['br_list'][item_product['br_list'].length - 1] + ')'">
+              <span class="image_badge">{{ item_product.br_list.length }}</span>
+            </div>
+            <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product.br_pdf_list.length > 0 && !instant" (click)="downloadPdf('br')">
+                <span class="image_badge">{{ item_product.br_pdf_list.length }}</span>
+            </div>
+            <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product.br_pdf_list.length > 0 && instant">
+                <span class="image_badge">{{ item_product.br_pdf_list.length }}</span>
+            </div>
+          </div>
+          <div class="nofile_string" *ngIf="item_product.br_list.length == 0 && item_product.br_pdf_list.length == 0">
+              파일 없음
+           </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">재직증명서</div>
+          <div class="attach_items">
+            <div class="image" *ngIf="item_product.coe_list.length > 0" (click)="openImage('coe')" [style.backgroundImage]="'url(' + item_product['coe_list'][item_product['coe_list'].length - 1] + ')'">
+              <span class="image_badge">{{ item_product.coe_list.length }}</span>
+            </div>
+            <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product.coe_pdf_list.length > 0 && !instant" (click)="downloadPdf('coe')">
+                <span class="image_badge">{{ item_product.coe_pdf_list.length }}</span>
+            </div>
+            <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product.coe_pdf_list.length > 0 && instant">
+                <span class="image_badge">{{ item_product.coe_pdf_list.length }}</span>
+            </div>
+          </div>
+          <div class="nofile_string" *ngIf="item_product.coe_list.length == 0 && item_product.coe_pdf_list.length == 0">
+              파일 없음
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">상표</div>
+          <div class="right_string">
+              {{ item_product.item_nm }}
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">수량</div>
+          <div class="right_string">
+              {{ item_product.qty + ' ' + item_product.qty_unit }}
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">단가</div>
+          <div class="right_string">
+              {{ item_product.unit_price + ' ' + item_product.current_unit }}
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">자가사용여부</div>
+          <div class="right_string">
+              {{ item_product.self_use_gb==null?'N':item_product.self_use_gb }}
+          </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+          <div class="left_string">
+            인보이스<span style="color:#999;">(옵션)</span>
+          </div>
+          <div class="attach_items">
+            <div class="image" *ngIf="item_product.invoice_photos.length > 0" (click)="openImage('invoice')" [style.backgroundImage]="'url(' + item_product['invoice_photos'][item_product['invoice_photos'].length - 1] + ')'">
+              <span class="image_badge">{{ item_product.invoice_photos.length }}</span>
+            </div>
+            <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product.invoice_pdfs.length > 0 && !instant" (click)="downloadPdf('invoice')">
+                <span class="image_badge">{{ item_product.invoice_pdfs.length }}</span>
+            </div>
+            <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product.invoice_pdfs.length > 0 && instant">
+                <span class="image_badge">{{ item_product.invoice_pdfs.length }}</span>
+            </div>
+          </div>
+          <div class="nofile_string" *ngIf="item_product.invoice_photos.length == 0 && item_product.invoice_pdfs.length == 0">
+              파일 없음
+           </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+            <div class="left_string">FTA대상여부</div>
+            <div class="right_string">
+                {{ this.key_fta[this.item_product['fta_gb']] }}
+            </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+            <div class="left_string">원산자증명서 및 제품이미지</div>
+            
+                <div class="attach_items">
+                  <div class="image" *ngIf="item_product['origin_photos'].length > 0" (click)="openImage('origin')" [style.backgroundImage]="'url(' + item_product['origin_photos'][item_product['origin_photos'].length - 1] + ')'">
+                      <span class="image_badge">{{ item_product['origin_photos'].length }}</span>
+                  </div>
+                  <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product['origin_pdfs'].length > 0 && !instant" (click)="downloadPdf('origin')">
+                        <span class="image_badge">{{ item_product['origin_pdfs'].length }}</span>
+                  </div> 
+                  <div [style.backgroundImage]="'url(./assets/icon/pdf.png)'" class="pdf" *ngIf="item_product['origin_pdfs'].length > 0 && instant" >
+                      <span class="image_badge">{{ item_product['origin_pdfs'].length }}</span>
+                  </div> 
+                </div>
+            
+            <!--<div class="nofile_string" *ngIf="item_product.origin_photos.length == 0 && item_product.orgin_pdfs.length == 0">
+                파일 없음
+             </div> -->
+             <div class="nofile_string" *ngIf="item_product.origin_pdfs.length == 0 && item_product.origin_photos.length == 0">
+                파일 없음
+             </div>
+        </ion-row>
+        <ion-row class="item_detail_row">
+            <div class="left_string">원산지국가</div>
+            <div class="right_string">
+              {{ mark_country[item_product.origin_cc] }}
+            </div>
+        </ion-row>
+    </ion-grid>
+  </ion-content>
+  <ion-content class="slide-content" *ngIf="popup">
+    <ion-slides #slides [pager]="curIndex < slide_count" (ionSlideDidChange)="slideChanged()" class="image-slider" slidesPerView="1" (click)="goback()">
+      <ion-slide *ngFor="let img of images">
+        <img src="{{img}}" class="thumb-img" imageViewer>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>

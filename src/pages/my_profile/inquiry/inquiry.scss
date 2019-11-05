@@ -1,0 +1,146 @@
+page-inquiry {
+    .navar_top {
+        left: 21px; position: absolute; width: 100%; z-index: 1001;
+        background: #fff; margin-left: -21px; margin-right: -21px;
+        align-items: center; justify-content: space-between;     
+        .title_label {
+            font-weight: 500;
+        }
+        .inquiry_label {
+            font-size: 12px; font-weight: 500;        
+        }
+        ion-icon {
+            padding: 10px;
+            margin-left: -10px;
+        }
+    }
+    .scroll-content {
+        margin-top: 20px;
+    }
+    .page-content {
+        .row_label1 {
+            margin-top: 30px; color: #00529a; font-weight: 500;
+        }
+        .row_label2 {
+            margin-top: 5px; font-weight: 500;   
+        }
+        .row_label3 {
+            font-weight: 500;
+            margin-top: 5px;
+        }
+        .row_label4 {
+            font-size: 12px; color: #999; margin-top: 5px;
+            li {
+                margin-left: -18px;
+            }
+        }
+        //panel title & body css
+        .panel_div {
+            margin-top: 10px; border: 1px solid #f5f5f5; margin-left: 5px;
+            margin-right: 5px; flex-direction: column; padding-left: 0px; padding-right: 0px;    
+        }
+        .panel_detail {
+            border-bottom: 1px solid #f5f5f5;
+            display: flex;
+            padding: 8px 20px 8px 20px;   
+        }
+        .align_column {
+            flex-direction: column;
+            display: flex;
+            width: 100%;
+        }
+        .align_row {
+            flex-direction: row;
+            display: flex;
+        }
+        .reg_date {
+            color: #bbbbbb; font-size: 11px; line-height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .running_panel {
+            .panel_detail {
+                align-items: center;
+                div:nth-child(1) {
+                    position: relative;
+                }
+                div:nth-child(2) {
+                    margin-left: 10px;
+                }
+                .total_val {
+                    position: absolute; bottom: 0px;
+                    right: 2px; font-weight: 900;    
+                }
+                .current_val {
+                    position: absolute; top: 0px;
+                    font-weight: 900;
+                }
+            }
+        }
+        .title_bar {
+            margin-top: 48px; align-items: center;display: flex;
+            padding: 0px 21px 0px 21px; margin-bottom: 10px;    
+            ion-col:nth-child(1) {
+                font-size: 24px;
+            }
+            ion-col:nth-child(2) {
+                text-align: right;
+            }
+        }
+        .notice {
+            font-weight: 500;
+        }
+        .question_detail {
+            background: #f2f2f2; font-size: 12px; 
+            margin-left: 5px; margin-right: 5px; 
+            display: flex; flex-direction: column;
+            .question_detail_contents {
+                padding-top: 20px; padding-bottom: 20px;   
+                width: 100%;
+            }
+            .question_detail_files {
+                display: flex; padding-top: 20px; width: 100%;
+                .attach_img {
+                    background: #ddd;
+                    width: 60px;
+                    height: 60px;
+                    margin-right: 4px;
+                }
+            }
+        }
+        .answer_detail {
+            display: flex; flex-direction: row;
+            border: 1px solid #f2f2f2; margin-left: 5px; margin-right: 5px;
+            .blue_color {
+                padding-top: 20px;     font-size: 12px;      width: 50px;
+            }
+            .blue_answer {
+                width: calc( 100% - 50px ); font-size: 12px; display: flex; flex-direction: column;
+                .answer_detail_files {
+                    display: flex; padding-top: 20px; width: 100%;       
+                    .attach_img {
+                        background: #ddd; width: 60px; height: 60px; margin-right: 4px;   
+                    }
+                }    
+                .answer_detail_contents {
+                    padding-top: 20px; padding-bottom: 20px; width: 100%;       
+                }
+            }
+        }   
+        .inquiry_detail:last-child {
+            margin-bottom: 30px;
+        }
+        .scroll-content {
+            padding : 16px;
+        }
+        .row_label1 , .row_label2 , .row_label3 , .row_label4  {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+        .inquiry_detail {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+    }
+}

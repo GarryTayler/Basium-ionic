@@ -1,0 +1,18 @@
+<ion-row class="navar_top">
+    <img [src]="'./assets/icon/close_button.png'" class="close_icon" (click)="close()" /> 
+    <div class="title_label">알림</div>
+</ion-row>
+<ion-content class="page-content">
+  <ion-grid class="section">
+      <ion-row class="panel_div" *ngFor="let result_item of result_list">
+          <div class="panel_body running_panel">
+              <div class="panel_detail" style="align-items:center;">
+                  <div class="align_column">
+                      <span class="notice">{{ result_item.alert_contents }}</span>
+                      <span class="reg_date">{{ result_item.alert_reg_dt }}</span>
+                  </div>
+              </div>
+           </div>
+        </ion-row>
+  </ion-grid>
+</ion-content>

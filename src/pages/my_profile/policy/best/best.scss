@@ -1,0 +1,42 @@
+page-best {
+    .navar_top {
+        left: 21px; position: absolute; width: 100%; z-index: 1001;
+        justify-content: center; align-items: center; 
+        padding-top: 10px; padding-bottom: 10px;
+        background: #f7f7f7; margin-left: -21px; margin-right: -21px;
+        .close_icon {
+            position: absolute; 
+            padding: 8px 15px 8px 15px;
+            left: 0px;
+        }
+        .title_label {
+            font-weight: 500;
+        }
+    }
+    .scroll-content {
+        margin-top: 35px;
+    }
+    .page-content {
+        .best_logo {
+            margin-top: 40px;
+            display: flex; align-items: center; justify-content: center;
+            img {
+                width: 60%;    
+            }
+        }
+        .title_bar {
+            font-size: 24px; font-weight: 600; display: flex; justify-content: center;
+            margin-top: 30px;
+        }
+        .company_info {
+            margin-top: 30px; font-weight: 500; line-height: 24px;    
+        }
+        ion-row:last-child {               
+            margin-bottom: 30px;
+        }
+        .scroll-content {
+            padding-left: 12px;
+            padding-right: 12px;    
+        }
+    }
+}

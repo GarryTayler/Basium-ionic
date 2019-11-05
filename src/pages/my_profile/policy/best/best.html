@@ -1,0 +1,17 @@
+<ion-row class="navar_top">
+    <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+    <div class="title_label">회사소개</div>
+</ion-row>
+<ion-content class="page-content">
+  <ion-grid class="section">
+      <ion-row class="best_logo" *ngIf="result_str.hasOwnProperty('logo_img_url')">
+          <img [src]="result_str.logo_img_url">
+      </ion-row>
+      <ion-row class="title_bar">
+          {{ result_str.comp_nm }}
+      </ion-row>
+      <ion-row class="company_info">
+          <p style="white-space: pre-line" [innerHTML]="result_str.contents"></p>
+      </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,82 @@
+page-profile_setting_1 {
+    .page-content {
+        .navar_top {
+            justify-content: space-between; width: 100%;
+            padding-top: 10px; padding-bottom: 10px;
+            background: #f7f7f7; align-items: center; 
+            left: 15px; top: 0; position: absolute; z-index: 10;
+            .title_label {
+                font-weight: 500;
+            }
+            .save_button {
+                color: #00529a;
+                font-size: 13px;           
+            }
+        }
+        
+        .id_input {
+            .col .item-md.item-block .item-inner {
+                padding-right: 0px; 
+            }
+            .login-input input {
+                width: 100%;
+                padding: 10px;
+                background: 0 0;
+                border: 0;
+                border: 1px solid #eeeeee;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                -o-border-radius: 0;
+                border-radius: 0;
+                color: #555;
+                box-shadow: none;
+                font-size: 14px; 
+                margin: 5px 0px 5px 0px;
+            }
+        }
+        ion-label {
+            font-weight: 500;
+        }
+        #get_verification_code {
+            width: 150px;
+            margin-left: 15px;
+        }
+        #confirm {
+            width: 150px;
+            margin-left: 15px;
+        }
+        .button_line {
+            display: flex;
+            flex-direction: row;
+        }
+        .social_line {
+            display: flex; align-items: center; width: 100%;
+            padding-top: 10px;padding-bottom: 10px;   
+        }
+        .social_name {
+            font-size: 13px; font-weight: 800; margin-left: 10px;       
+        }       
+        .link_social {
+            height: 30px; width: 100px;   
+        }
+        .scroll-content {
+            padding-left: 12px;
+            padding-right: 12px;    
+        }
+        .navar_top1 {
+            justify-content: center; align-items: center; 
+            padding-top: 10px; padding-bottom: 10px;
+            .close_icon {
+                position: absolute; left: 15px;    
+            }
+            .title_label {
+                font-weight: 500;
+            }
+        }
+        .iframe {
+            height: calc( 100vh - 100px );
+            border: 0px; width: 100%;
+        }
+    }
+}

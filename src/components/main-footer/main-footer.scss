@@ -1,0 +1,37 @@
+main-footer {
+    .food-footer {
+        height: 56px;
+        background: #f2f2f2;
+        &::before {
+            position: absolute; top: -2px; bottom: auto; width: 100%;
+            height: 2px; background: none; box-shadow: 0px -2px 4px 0px rgba(0, 153, 255, 0.18);
+        }
+        .etc_item {
+            padding: 8px 0px;
+        }
+        .main_item {
+            margin-top: -16px;
+        }
+        .footer-item {
+            font-size: 10px;
+            text-align: center;
+            color: black;
+            &.selected {
+                color: color($colors, main_color);
+                border-top: 2px solid color($colors, main_color);
+            }
+            img.submenu {
+                width: 21px; height: 20px; object-fit: contain;
+            }
+            img.mainmenu {
+                width: 45px; height: 46px; object-fit: contain;
+            }
+            p {
+                margin: 0px; line-height: 20px; font-weight: 500;
+            }
+        }
+        .count {
+            color: color($colors, primary); font-size: 12px;
+        }
+    }
+}

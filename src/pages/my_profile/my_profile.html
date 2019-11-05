@@ -1,0 +1,109 @@
+<ion-header>
+    <main-header></main-header>
+</ion-header>
+<ion-content class="page-content">
+  <ion-grid class="section">
+      <ion-row class="profile_title">
+          내정보
+      </ion-row>
+      <ion-row class="row_line1">
+        <span class="my_email">{{  result.hasOwnProperty('user_id') ? result.user_id : '' }}</span> 
+        <span class="setting" (click)="gotoSetting()">설정</span> 
+      </ion-row>
+      <ion-row class="row_line2">
+          GREEN / {{ result.hasOwnProperty('user_tel') ? result.user_tel : '' }}
+      </ion-row>
+      <ion-row class="row_line3">
+          <ion-col (click)="gotoCoupon('coupon')">
+              <span class="grey_label">
+                  사용가능 쿠폰
+              </span>
+              <span id="useful_coupon">
+                  {{ coupon_count }}
+              </span>
+          </ion-col>
+          <ion-col (click)="gotoCoupon('fund')">
+                <span class="grey_label">
+                    적립금
+                </span>
+                <span id="pay_amount">
+                  {{ result.hasOwnProperty('user_mileage') ? result.user_mileage : '0' }}
+                </span>
+          </ion-col>
+      </ion-row>
+      <ion-row class="row_line4">
+            통관정보
+      </ion-row>
+      <ion-row class="row_line5" (click)="gotoHistory()">
+            <img [src]="'./assets/icon/history.png'" class="profile_img1" /> 
+            <span>통관내역</span>
+            <div class="space"></div>
+            <i class="fas fa-angle-right"></i>
+      </ion-row>
+      <ion-row class="row_line6" (click)="gotoCalculator()">
+            <img [src]="'./assets/icon/calculator_icon.png'" class="profile_img1" style="margin-left: -2px;" /> 
+            <span>관세계산</span>
+            <div class="space"></div>
+            <i class="fas fa-angle-right"></i>
+      </ion-row>
+      <ion-row class="row_line6" (click)="gotoPayment()">
+            <img [src]="'./assets/icon/payment_card.png'" class="profile_img1" style="margin-left: -3px;" /> 
+            <span style="margin-left: 18px;">결제카드</span>
+            <div class="space"></div>
+            <i class="fas fa-angle-right"></i>
+      </ion-row>
+      <ion-row class="row_line7" (click)="gotoNotifySetting()">
+            <img [src]="'./assets/icon/notification_icon.png'" class="profile_img1" style="margin-left: -3px;" /> 
+            <span style="margin-left: 24px;">알림설정</span>
+            <div class="space"></div>
+            <i class="fas fa-angle-right"></i>
+      </ion-row>
+      <ion-row class="row_line8">
+            고객센터
+      </ion-row>
+      <ion-row class="row_line9" (click)="gotoAnnouncement()">
+            <img [src]="'./assets/icon/announce.png'" class="profile_img1" /> 
+            <span>공지사항</span>
+            <div class="space"></div>
+            <i class="fas fa-angle-right"></i>
+      </ion-row>
+      <ion-row class="row_line10" (click)="gotoCatalog()">
+            <img [src]="'./assets/icon/manual.png'" class="profile_img1" style="margin-left: 2px;" /> 
+            <span style="margin-left: 23px;">이용안내</span>
+            <div class="space"></div>
+            <i class="fas fa-angle-right"></i>
+      </ion-row>
+      <ion-row class="row_line11" (click)="gotoInquiry()">
+            <img [src]="'./assets/icon/inquiry.png'" class="profile_img1" style="margin-left: -1px;" /> 
+            <span style="margin-left: 22px;">1:1문의</span>
+            <div class="space"></div>
+            <i class="fas fa-angle-right"></i>
+      </ion-row>
+      <ion-row class="row_line12" (click)="gotoFAQs()">
+            <img [src]="'./assets/icon/faqs.png'" class="profile_img1" style="margin-left: -1px;" /> 
+            <span style="margin-left: 22px;">FAQs</span>
+            <div class="space"></div>
+            <i class="fas fa-angle-right"></i>
+      </ion-row>
+      <ion-row class="row_line13" (click)="gotoPolicy()">
+            <img [src]="'./assets/icon/agreement.png'" class="profile_img1" /> 
+            <span style="margin-left: 21px;">약관 및 방침</span>
+            <div class="space"></div>
+            <i class="fas fa-angle-right"></i>
+      </ion-row>
+      <ion-row class="row_line8">
+            ABOUT 바슘
+      </ion-row>
+      <ion-row class="row_line9" (click)="gotoBasiumService()">
+            <span class="field">서비스 소개</span>
+            <div class="space"></div>
+      </ion-row>
+      <ion-row class="row_line13 margin-bottom" (click)="gotoBest()">
+            <span class="field">베스트관세사무소 소개</span>
+            <div class="space"></div>
+      </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer class="hide-on-keyboard-open">
+  <main-footer tab="profile"></main-footer>
+</ion-footer>

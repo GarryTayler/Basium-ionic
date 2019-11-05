@@ -1,0 +1,14 @@
+page-escape {
+    .page-content {
+        .title_bar {
+            font-size: 16px; font-weight: 600; margin-top: 60px; margin-bottom: 20px;
+        }
+        ion-row:last-child {
+            margin-bottom: 30px;
+        }
+        .scroll-content {
+            padding-left: 12px;
+            padding-right: 12px;    
+        }
+    }
+}

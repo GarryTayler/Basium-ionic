@@ -1,0 +1,155 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+$fa-font-path: "../assets/webfonts";
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+$backdrop-color: rgba(0, 0, 0, 0);
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #FF6969,
+  secondary:  #ED4B9A,
+  danger:     #f53d3d,
+  light:      #FFF,
+  facebook:   #3B5998,
+  dark:       #222,
+  gray:       #727C8E,
+  header:     #F6F6F6,
+  ink:        #515C6F,
+  white:        #FFFFFF,
+  main_color: #00529a
+);
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+
+@import "ionic.theme.default";
+@import "ionic.theme.default";
+$text-input-highlight-color-valid: #FFFFFF;
+$text-input-highlight-color-invalid: #FFFFFF;
+$text-input-md-highlight-color: #FFFFFF;
+$text-input-ios-highlight-color: #FFFFFF;
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "noto-sans";
+@import "bootstrap";
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 100;
+  src: url(../assets/fonts/notoSans/NotoSansKR-Thin.woff2) format('woff2'),
+       url(../assets/fonts/notoSans/NotoSansKR-Thin.woff) format('woff'),
+       url(../assets/fonts/notoSans/NotoSansKR-Thin.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 300;
+  src: url(../assets/fonts/notoSans/NotoSansKR-Light.woff2) format('woff2'),
+       url(../assets/fonts/notoSans/NotoSansKR-Light.woff) format('woff'),
+       url(../assets/fonts/notoSans/NotoSansKR-Light.otf) format('opentype');
+}
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 400;
+   src: url(../assets/fonts/notoSans/NotoSansKR-Regular.woff2) format('woff2'),
+        url(../assets/fonts/notoSans/NotoSansKR-Regular.woff) format('woff'),
+        url(../assets/fonts/notoSans/NotoSansKR-Regular.otf) format('opentype');
+ }
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 500;
+   src: url(../assets/fonts/notoSans/NotoSansKR-Medium.woff2) format('woff2'),
+        url(../assets/fonts/notoSans/NotoSansKR-Medium.woff) format('woff'),
+        url(../assets/fonts/notoSans/NotoSansKR-Medium.otf) format('opentype');
+ }
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 700;
+   src: url(../assets/fonts/notoSans/NotoSansKR-Bold.woff2) format('woff2'),
+        url(../assets/fonts/notoSans/NotoSansKR-Bold.woff) format('woff'),
+        url(../assets/fonts/notoSans/NotoSansKR-Bold.otf) format('opentype');
+ }
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 900;
+   src: url(../assets/fonts/notoSans/NotoSansKR-Black.woff2) format('woff2'),
+        url(../assets/fonts/notoSans/NotoSansKR-Black.woff) format('woff'),
+        url(../assets/fonts/notoSans/NotoSansKR-Black.otf) format('opentype');
+} 
+
+
+$font-family-md-base: "Noto Sans KR";
+$font-family-ios-base: "Noto Sans KR";
+$font-family-wp-base: "Noto Sans KR";

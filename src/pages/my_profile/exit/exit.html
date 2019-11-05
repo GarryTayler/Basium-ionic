@@ -1,0 +1,56 @@
+<ion-row class="navar_top">
+        <ion-icon name="ios-arrow-back" class="close_icon" (click)="back()" ></ion-icon>
+        <div class="title_label">회원탈퇴</div>
+</ion-row>
+<ion-content class="page-content" [class.keyboard-open]="keyboard.isOpen()">
+    <ion-grid class="section">
+        <ion-row class="main_contents">
+            바슘을 이용해주셔서 감사합니다. <br/>
+            이용시 , 불편하셨던 점들을 알려주시면 참고하여 더 나은 <br/>
+            서비스로 개선하겠습니다. <br/>
+        </ion-row>
+        <ion-row style="margin-top: 30px;">
+                <ion-checkbox class="require_service" mode="ios" [(ngModel)]="checkbox_1"></ion-checkbox>
+                <div class="label_text">
+                    <strong>개인정보 노출 우려</strong>
+                </div>
+        </ion-row>
+        <ion-row>
+                <ion-checkbox class="require_service" mode="ios" [(ngModel)]="checkbox_2" ></ion-checkbox>
+                <div class="label_text">
+                    <strong>앱의 잦은 장애 / 불편한 사용성</strong>
+                </div>
+        </ion-row>
+        <ion-row>
+                <ion-checkbox class="require_service" mode="ios" [(ngModel)]="checkbox_3" ></ion-checkbox>
+                <div class="label_text">
+                    <strong>업무 처리속도 느림</strong>
+                </div>
+        </ion-row>
+        <ion-row>
+                <ion-checkbox class="require_service" mode="ios" [(ngModel)]="checkbox_4" ></ion-checkbox>
+                <div class="label_text">
+                    <strong>자주 이용하지 않음</strong>
+                </div>
+        </ion-row>
+        <ion-row>
+                <ion-checkbox class="require_service" mode="ios" [(ngModel)]="checkbox_5" ></ion-checkbox>
+                <div class="label_text">
+                    <strong>고객응대 불친절</strong>
+                </div>
+        </ion-row>
+        <ion-row>
+                <ion-checkbox class="require_service" mode="ios" [(ngModel)]="checkbox_6" ></ion-checkbox>
+                <div class="label_text">
+                    <strong>기타</strong>
+                </div>
+        </ion-row>
+        <ion-row style="display: flex;justify-content: flex-end;">
+            <input class="review_input" placeholder="입력" [(ngModel)]="review" />        
+        </ion-row>
+
+        <ion-row class="exit_button" (click)="exit()" *ngIf="!keyboard.isOpen()">
+            탈퇴하기
+        </ion-row>
+    </ion-grid>
+  </ion-content>

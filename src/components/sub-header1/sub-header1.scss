@@ -1,0 +1,23 @@
+sub-header1 {
+    .sub-header1 {
+        border: 0; left: 0; top: 0; 
+        position: absolute; z-index: 10; width: 100%;
+        margin: 0px; display: flex; align-items: center;
+        padding-top: 10px; padding-bottom: 10px; padding-left: 10px;  padding-right: 10px;
+        background: #fff;  justify-content: center;
+
+        /*justify-content: center; width: 100%;
+        padding-top: 10px; padding-bottom: 10px;
+        background: #fff; align-items: center; 
+        left: 15px; top: 0; position: absolute; z-index: 10;*/
+
+        .close_icon {
+            position: absolute; 
+            padding: 8px 15px 8px 15px;
+            left: 0px;    
+        }
+        .title_label {
+            font-weight: 500;
+        }       
+    }
+}

@@ -1,0 +1,13 @@
+<ion-header>
+  <sub-header title="서비스 이용약관"></sub-header>
+</ion-header>
+<ion-content class="page-content">
+  <ion-grid class="section">
+      <ion-row class="title_bar">
+          {{ result_str.title }}
+      </ion-row>
+      <ion-row class="paragraph1">
+          <p style="white-space: pre-line" [innerHTML]="result_str.contents"></p>
+      </ion-row>
+  </ion-grid>
+</ion-content>
